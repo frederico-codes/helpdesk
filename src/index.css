@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+
+@theme {
+  --default-font-family: "Lato", serif;
+  /* ---------------------- */
+  /*        BRAND           */
+  /* ---------------------- */
+
+  --color-blue-dark:  #2E3DA3;
+  --color-blue-base:  #5165E1;
+  --color-blue-light: #8996EB;
+
+  /* ---------------------- */
+  /*      GRAYSCALE         */
+  /* ---------------------- */
+
+  --color-gray-100: #151619;
+  --color-gray-200: #1E2024;
+  --color-gray-300: #535964;
+  --color-gray-400: #858B99;
+  --color-gray-500: #E3E5E8;
+  --color-gray-600: #F9FAFA;
+
+  /* ---------------------- */
+  /*       FEEDBACK         */
+  /* ---------------------- */
+
+  --color-feedback-danger:   #D03E3E;
+  --color-feedback-open:     #CC3D6A;
+  --color-feedback-progress: #355EC5;
+  --color-feedback-done:     #50B826;
+}
