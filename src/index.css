@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  
+}
+
 
 @theme {
-  --default-font-family: "Lato", serif;
+  --default-font-family: "Lato", sans-serif;
   /* ---------------------- */
   /*        BRAND           */
   /* ---------------------- */
@@ -30,4 +36,6 @@
   --color-feedback-open:     #CC3D6A;
   --color-feedback-progress: #355EC5;
   --color-feedback-done:     #50B826;
+
+  --text-xxs: 0.625rem;
 }
