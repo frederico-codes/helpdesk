@@ -3,11 +3,13 @@ import { Calls } from "../pages/Calls";
 import { Customers } from "../pages/Customers";
 import { Services } from "../pages/Services";
 import { Technicians } from "../pages/Technicians";
+import { DetailedCall } from "../pages/DetailedCall"
 
 export function AdminRoutes() {
   return (
     <Routes>
       <Route path="/calls" element={<Calls />} />
+      <Route path="/detailcalls" element={<DetailedCall />} />
       <Route path="/customers" element={<Customers />} />
       <Route path="/services" element={<Services />} />
       <Route path="/technicians" element={<Technicians />} />
