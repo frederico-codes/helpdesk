@@ -10,8 +10,11 @@ import clockOpen from "../assets/chamados/clock-open.svg"
 import closed from "../assets/chamados/closed.svg"
 import pen from "../assets/chamados/pen-line.svg"
 import currently_assisting from "../assets/chamados/currently_assisting.svg"
+import { useLocation } from "react-router-dom";
 
 export function Calls(){
+const location = useLocation();
+
 
   return(
     <div className="w-screen h-screen  xl:grid xl:grid-cols-[280px_1fr] relative  bg-gray-100 ">
@@ -24,28 +27,79 @@ export function Calls(){
           </div>
         </div>
         <nav className="pt-5 px-4">
-          <a href="#" 
-          className="w-[180px] flex items-center gap-2 text-sm text-gray-600 p-3 bg-blue-dark outline-0 rounded-sm"
+          {/* CHAMADOS */}
+          <a
+            href="/calls"
+            className={`
+              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+              ${location.pathname === "/calls"
+                ? "bg-blue-dark text-white"
+                : "text-gray-400"
+              }
+            `}
           >
-            <img src={list} alt=""   className="invert brightness-0" />
+            <img
+              src={list}
+              alt=""
+              className={location.pathname === "/calls" ? "invert brightness-0" : ""}
+            />
             Chamados
           </a>
-          <a href="#" 
-          className="w-[180px] flex items-center gap-2 text-sm text-gray-400 p-3 outline-0 rounded-sm "
+
+          {/* TÉCNICOS */}
+          <a
+            href="/technicians"
+            className={`
+              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+              ${location.pathname === "/technicians"
+                ? "bg-blue-dark text-white"
+                : "text-gray-400"
+              }
+            `}
           >
-            <img src={tecnicos} alt="icone users"  className="" />
+            <img
+              src={tecnicos}
+              alt=""
+              className={location.pathname === "/technicians" ? "invert brightness-0" : ""}
+            />
             Técnicos
           </a>
-          <a href="#" 
-          className="w-[180px] flex items-center gap-2 text-sm text-gray-400 p-3 outline-0 rounded-sm"
+
+          {/* CLIENTES */}
+          <a
+            href="/customers"
+            className={`
+              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+              ${location.pathname === "/customers"
+                ? "bg-blue-dark text-white"
+                : "text-gray-400"
+              }
+            `}
           >
-            <img src={briefcase} alt="icone users"  className="" />
+            <img
+              src={briefcase}
+              alt=""
+              className={location.pathname === "/customers" ? "invert brightness-0" : ""}
+            />
             Clientes
           </a>
-          <a href="#" 
-          className="w-[180px] flex items-center gap-2 text-sm text-gray-400 p-3 outline-0 rounded-sm"
+
+          {/* SERVIÇOS */}
+          <a
+            href="/services"
+            className={`
+              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+              ${location.pathname === "/services"
+                ? "bg-blue-dark] text-white"
+                : "text-gray-400"
+              }
+            `}
           >
-            <img src={wrench} alt="icone users"  className="" />
+            <img
+              src={wrench}
+              alt=""
+              className={location.pathname === "/services" ? "invert brightness-0" : ""}
+            />
             Serviços
           </a>
         </nav>
@@ -151,8 +205,8 @@ export function Calls(){
 
                 {/* Botão Editar */}
                 <td className="py-4 xl:px-6">
-                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm">
-                    <a href="/detailcalls" className=" rounded-lg hover:bg-gray-100 cursor-pointer">
+                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm hover:bg-gray-600 transition ease-linear">
+                    <a href="/detailcalls" className=" rounded-lg cursor-pointer">
                       <img src={pen} alt="" />
                     </a>
                   </div>
@@ -215,8 +269,8 @@ export function Calls(){
 
                 {/* Botão Editar */}
                 <td className="py-4 xl:px-6">
-                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm">
-                    <a href="/detailcalls" className=" rounded-lg hover:bg-gray-100 cursor-pointer">
+                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm hover:bg-gray-600 transition ease-linear">
+                    <a href="/detailcalls" className=" rounded-lg cursor-pointer">
                       <img src={pen} alt="" />
                     </a>
                   </div>
@@ -279,8 +333,8 @@ export function Calls(){
 
                 {/* Botão Editar */}
                 <td className="py-4 xl:px-6">
-                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm">
-                    <a href="/detailcalls" className=" rounded-lg hover:bg-gray-100 cursor-pointer">
+                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm hover:bg-gray-600 transition ease-linear">
+                    <a href="/detailcalls" className=" rounded-lg cursor-pointer">
                       <img src={pen} alt="" />
                     </a>
                   </div>
@@ -343,8 +397,8 @@ export function Calls(){
 
                 {/* Botão Editar */}
                 <td className="py-4 xl:px-6">
-                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm">
-                    <a href="/detailcalls" className=" rounded-lg hover:bg-gray-100 cursor-pointer">
+                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm hover:bg-gray-600 transition ease-linear">
+                    <a href="/detailcalls" className=" rounded-lg cursor-pointer">
                       <img src={pen} alt="" />
                     </a>
                   </div>
@@ -407,8 +461,8 @@ export function Calls(){
 
                 {/* Botão Editar */}
                 <td className="py-4 xl:px-6">
-                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm">
-                    <a href="/detailcalls" className=" rounded-lg hover:bg-gray-100 cursor-pointer">
+                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm  hover:bg-gray-600 transition ease-linear">
+                    <a href="/detailcalls" className=" rounded-lg cursor-pointer">
                       <img src={pen} alt="" />
                     </a>
                   </div>
