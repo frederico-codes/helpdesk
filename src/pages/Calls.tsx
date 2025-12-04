@@ -29,7 +29,7 @@ const location = useLocation();
         <nav className="pt-5 px-4">
           {/* CHAMADOS */}
           <a
-            href="/calls"
+            href="/"
             className={`
               w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
               ${location.pathname === "/calls"

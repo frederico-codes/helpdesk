@@ -1,3 +1,278 @@
-export function Services(){
-  return <h1>Services</h1>
+import Defaultogo from "../assets/Defaultogo.svg";
+import tecnicos from "../assets/icons/tecnicos.svg";
+import briefcase from "../assets/icons/briefcase.svg";
+import wrench from "../assets/icons/wrench.svg";
+import list from "../assets/icons/clipboard-list.svg";
+import menu from "../assets/icons/Menu.png";
+import LogoIconLight from "../assets/Logo_IconLight.png";
+import avatar from "../assets/Avatar.svg";
+import pen from "../assets/chamados/pen-line.svg";
+import { useState } from "react";
+import { ServiceModal } from "../componentes/ServiceModal"; // importar modal
+import disable from "../assets/icons/disable.svg";
+import { useLocation } from "react-router-dom";
+import clock_open from "../assets/chamados/clock-open.svg";
+import plus from "../assets/icons/plus.svg";
+
+export type Service = {
+  id: number;
+  title: string;
+  value: number;
+  status: "active" | "inactive";
+};
+
+export function Services() {
+  const [modalOpen, setModalOpen] = useState(false);  
+  const [modalMode, setModalMode] = useState<"create" | "edit">("create");
+  const [selected, setSelected] = useState<Service | null>(null);
+  const location = useLocation();
+
+  function openCreate() {
+    setModalMode("create");
+    setSelected(null);
+    setModalOpen(true);
+  }
+
+  function openEdit(service: Service) {
+    setModalMode("edit");
+    setSelected(service);
+    setModalOpen(true);
+  }
+
+  return (
+    <div className="w-screen h-screen  xl:grid xl:grid-cols-[280px_1fr] relative  bg-gray-100 ">
+      <section className="hidden xl:block w-screen h-screen bg-gray-100 p-6 ">
+        <div className="flex gap-3">
+          <img src={Defaultogo} alt="Logo padrão" />
+          <div className="flex flex-col">
+            <h1 className="text-gray-600 text-xl">HelpDesk</h1>
+            <span className="text-xxs text-blue-light">Admin</span>
+          </div>
+        </div>
+
+        <nav className="pt-5 px-4">
+          {/* CHAMADOS */}
+          <a
+            href="/"
+            className={`
+              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+              ${
+                location.pathname === "/calls"
+                ? "bg-blue-dark text-white"
+                : "text-gray-400"
+              }
+            `}
+          >
+            <img
+              src={list}
+              alt=""
+              className={
+                location.pathname === "/calls" 
+                ? "invert brightness-0" 
+                : ""
+              }
+            />
+            Chamados
+          </a>
+
+          {/* TÉCNICOS */}
+          <a
+            href="/technicians"
+            className={`
+              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+              ${
+                location.pathname === "/technicians"
+                ? "bg-blue-dark text-white"
+                : "text-gray-400"
+              }
+            `}
+          >
+            <img
+              src={tecnicos}
+              alt="icone users"
+              className={
+                location.pathname === "/technicians"
+                ? "invert brightness-0"
+                : ""
+              }
+            />
+            Técnicos
+          </a>
+
+          {/* CLIENTES */}
+          <a
+            href="/customers"
+            className={`
+              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+              ${
+                location.pathname === "/customers"
+                ? "bg-blue-dark text-white"
+                : "text-gray-400"
+              }
+            `}
+          >
+            <img
+              src={briefcase}
+              alt="icone users"
+              className={
+                location.pathname === "/customers" ? "invert brightness-0" : ""
+              }
+            />
+            Clientes
+          </a>
+
+          {/* SERVIÇOS */}
+          <a
+            href="/services"
+            className={`
+              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+              ${
+                location.pathname === "/services"
+                ? "bg-blue-dark text-white"
+                : "text-gray-400"
+              }
+            `}
+          >
+            <img
+              src={wrench}
+              alt="icone users"
+              className={
+                location.pathname === "/services" ? "invert brightness-0" : ""
+              }
+            />
+            Serviços
+          </a>
+        </nav>
+      </section>
+
+      <section className="block  xl:hidden w-screen h-screen  absolute  top-0 ">
+        <div className="flex justify-between items-center  ">
+          {/* GRUPO ESQUERDA */}
+          <div className="flex justify-center items-center gap-3.5 absolute top-7 left-6">
+            <img src={menu} alt="menu" className="" />
+
+            <div className="flex justify-center gap-4 ">
+              <img
+                src={LogoIconLight}
+                alt="LogoIconLight"
+                className="h-11 w-11"
+              />
+              <div>
+                <h1 className="text-xl text-gray-600 ">HelpDesk</h1>
+                <span className="text-xxs text-blue-light ">Admin</span>
+              </div>
+            </div>
+          </div>
+          {/* GRUPO DIREITA */}
+          <div>
+            <img
+              src={avatar}
+              alt="avatar"
+              className="absolute top-8 right-10"
+            />
+          </div>
+        </div>
+      </section>
+
+      <form className="w-full h-full flex flex-col px-6 xl:px-16  gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4">
+        <div className="flex justify-between items-center">
+          <h1 className="text-2xl font-bold">Serviços</h1>
+          <a
+            className="flex justify-center items-center gap-2 bg-gray-800 px-3 py-2 rounded-sm hover:bg-gray-300 cursor-pointer
+          transition ease-linear"
+            onClick={openCreate}
+          >
+            <img src={plus} alt="" className="w-4 h-4" />
+            <span className="text-gray-600 text-sm hidden xl:block">Novo</span>
+          </a>
+        </div>
+        <div className="w-full bg-white rounded-2xl shadow-sm overflow-hidden">
+          <table className="w-full text-left">
+            {/* Cabeçalho */}
+            <thead className="border-b border-gray-200">
+              <tr className="text-sm text-gray-400">
+                <th className="py-4 xl:px-6 font-medium">Título</th>
+                <th className="py-4 px-6 font-medium">Valor</th>
+                <th className="py-4 px-4 xl:px-6 font-medium">Status</th>
+                <th className="py-4 px-6 font-medium"></th>
+                <th className="py-4 px-6 font-medium"></th>
+              </tr>
+            </thead>
+
+            {/* Primeira linha */}
+            <tbody>
+              <tr className="border-b last:border-none">
+                {/* Título e Serviço */}
+                <td className="py-4  xl:px-6">
+                  <div className="font-semibold text-gray-800 text-sm truncate max-w-[60px] xl:truncate-none xl:max-w-full">
+                    Backup não está funcionando{" "}
+                  </div>
+                </td>
+
+                <td className="py-4 px-6">
+                  <div className="text-sm text-gray-400">R$ 180,00 </div>
+                </td>
+                {/* Status */}
+                <td className="py-4 px-4 xl:px-6">
+                  <span className="flex items-center gap-2">
+                    <img
+                      src={clock_open}
+                      alt="ícone de relógio vermelho"
+                      className="block xl:hidden"
+                    />
+                    <span className="hidden xl:inline-flex  items-center bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full ">
+                      Inativo
+                    </span>
+                  </span>
+                </td>
+
+                <td className="py-4 px-4 xl:px-6">
+                  <div className="h-9 w-9 flex justify-center items-center rounded-sm transition ease-linear">
+                    <a className=" rounded-lg cursor-pointer">
+                      <div className="flex gap-1">
+                        <img src={disable} alt="" />
+                        <span className="hidden xl:block">Desativar</span>
+                      </div>
+                    </a>
+                  </div>
+                </td>
+
+                <td className="py-4 px-1  w-4">                  
+                    <a
+                      onClick={() =>
+                        openEdit({
+                          id: 1,
+                          title: "Backup não está funcionando",
+                          value: 180,
+                          status: "active",
+                        })
+                      }
+                      className="rounded-lg h-9 w-9 bg-gray-500  hover:bg-gray-600 flex justify-center items-center cursor-pointer transition ease-linear"
+                    >
+                      <img src={pen} alt="" />
+                    </a>                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+
+      {/* MODAL */}
+      <ServiceModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onSubmit={(data) => {
+          console.log("Enviado:", data);
+          setModalOpen(false);
+        }}
+        mode={modalMode} // agora está tipado corretamente
+        data={
+          selected
+          ? { title: selected.title, value: selected.value }
+          : undefined
+        }
+      />
+    </div>
+  );
 }

@@ -1,6 +1,6 @@
 // CustomerModal.jsx
 import { X } from "lucide-react";
-import { Button } from "./Button";
+
 
 interface CustomerModalProps {
   open: boolean;

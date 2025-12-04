@@ -7,7 +7,6 @@ import menu from "../assets/icons/Menu.png"
 import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
 import clockOpen from "../assets/chamados/clock-open.svg"
-
 import clock from "../assets/icons/clock.svg"
 
 export function DetailedCall(){
@@ -75,7 +74,7 @@ export function DetailedCall(){
 
           
           <div className="flex flex-col xl:ml-24 xl:w-[800px] "> 
-            <a href="/calls" className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-500">
+            <a href="/" className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-500">
               <span className="text-lg">←</span>
               Voltar
             </a>
@@ -133,27 +132,23 @@ export function DetailedCall(){
 
               {/* Criado e Atualizado */}
               <div className="grid grid-cols-2 gap-6 mb-6">
-
                 <div>
                   <h3 className="text-sm text-gray-400">Criado em</h3>
                   <p className="text-sm text-gray-700 mt-1">
                     12/04/25 09:12
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-sm text-gray-400">Atualizado em</h3>
                   <p className="text-sm text-gray-700 mt-1">
                     12/04/25 15:20
                   </p>
                 </div>
-
               </div>
 
               {/* Cliente */}
               <div>
                 <h3 className="text-sm text-gray-400">Cliente</h3>
-
                 <div className="flex items-center gap-3 mt-2">
                   <span className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">
                     AC
@@ -161,45 +156,33 @@ export function DetailedCall(){
                   <span className="text-sm text-gray-700">André Costa</span>
                 </div>
               </div>
-
             </div>
 
             {/* COLUNA DIREITA */}
-            <div className="bg-white border border-gray-500 rounded-xl p-6">
-
-              {/* Técnico Responsável */}
+            <div className="bg-white border border-gray-500 rounded-xl p-6">              
               <h3 className="text-sm text-gray-400 mb-2">Técnico responsável</h3>
-
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-9 h-9 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">
                   CS
                 </span>
-
                 <div>
                   <p className="text-sm font-medium text-gray-800">Carlos Silva</p>
                   <p className="text-xs text-gray-400">carlos.silva@test.com</p>
                 </div>
-              </div>
-
-              {/* Valores */}
+              </div>             
               <div className="mb-6">
                 <h3 className="text-sm text-gray-400">Valores</h3>
-
                 <div className="flex justify-between text-sm text-gray-700 mt-2">
                   <span>Preço base</span>
                   <span className="font-medium">R$ 200,00</span>
                 </div>
-              </div>
-
-              {/* Adicionais */}
+              </div>              
               <div className="mb-6">
                 <h3 className="text-sm text-gray-400">Adicionais</h3>
-
                 <div className="flex justify-between text-sm text-gray-700 mt-2">
                   <span>Assinatura de backup</span>
                   <span>R$ 120,00</span>
                 </div>
-
                 <div className="flex justify-between text-sm text-gray-700 mt-1">
                   <span>Formatação do PC</span>
                   <span>R$ 75,00</span>
@@ -214,7 +197,6 @@ export function DetailedCall(){
             </div>
           </div>
         </div>
-
       </form>
     </div>
   )
