@@ -4,6 +4,7 @@ import { Customers } from "../pages/Customers";
 import { Services } from "../pages/Services";
 import { Technicians } from "../pages/Technicians";
 import { DetailedCall } from "../pages/DetailedCall"
+import { DetailedTechnicians } from "../pages/DetailedTechnicians";
 
 export function AdminRoutes() {
   return (
@@ -13,6 +14,7 @@ export function AdminRoutes() {
       <Route path="/customers" element={<Customers />} />
       <Route path="/services" element={<Services />} />
       <Route path="/technicians" element={<Technicians />} />
+      <Route path="/detailtechnicians" element={<DetailedTechnicians/>}/>
     </Routes>
   );
 }

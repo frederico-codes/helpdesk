@@ -1,3 +1,194 @@
+import Defaultogo from "../assets/Defaultogo.svg"
+import tecnicos from "../assets/icons/tecnicos.svg"
+import briefcase from "../assets/icons/briefcase.svg"
+import wrench from "../assets/icons/wrench.svg"
+import list from "../assets/icons/clipboard-list.svg"
+import menu from "../assets/icons/Menu.png"
+import LogoIconLight from "../assets/Logo_IconLight.png"
+import avatar from "../assets/Avatar.svg"
+import pen from "../assets/chamados/pen-line.svg"
+import { useLocation } from "react-router-dom";
+
 export function Technicians(){
-  return <h1>Technicians</h1>
+const location = useLocation();
+
+  return(
+    <div className="w-screen h-screen  xl:grid xl:grid-cols-[280px_1fr] relative  bg-gray-100 ">
+  <section className="  hidden xl:block  bg-gray-100 p-6 ">
+        <div className="flex gap-3">
+          <img src={Defaultogo} alt="Logo padrão" />
+          <div className="flex flex-col">
+            <h1 className="text-gray-600 text-xl">HelpDesk</h1>
+            <span className="text-xxs text-blue-light">Admin</span>
+          </div>
+        </div>
+        <div className="flex flex-col gap-120">
+          <nav className="pt-5 px-4">
+            {/* CHAMADOS */}
+              <a
+                href="/"
+                className={`
+                  w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+                  ${location.pathname === "/calls"
+                    ? "bg-blue-dark text-white"
+                    : "text-gray-400"
+                  }
+                `}
+              >
+                <img
+                  src={list}
+                  alt=""
+                  className={location.pathname === "/calls" ? "invert brightness-0" : ""}
+                />
+                Chamados
+              </a>
+              {/* TÉCNICOS */}
+              <a
+                href="/technicians"
+                className={`
+                  w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+                  ${location.pathname === "/technicians"
+                    ? "bg-blue-dark text-white"
+                    : "text-gray-400"
+                  }
+                `}
+              >
+                <img
+                  src={tecnicos}
+                  alt=""
+                  className={location.pathname === "/technicians" ? "invert brightness-0" : ""}
+                />
+                Técnicos
+              </a>
+              {/* CLIENTES */}
+              <a
+                href="/customers"
+                className={`
+                  w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+                  ${location.pathname === "/customers"
+                    ? "bg-blue-dark text-white"
+                    : "text-gray-400"
+                  }
+                `}
+              >
+                <img
+                  src={briefcase}
+                  alt=""
+                  className={location.pathname === "/customers" ? "invert brightness-0" : ""}
+                />
+                Clientes
+              </a>
+              {/* SERVIÇOS */}
+              <a
+                href="/services"
+                className={`
+                  w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+                  ${location.pathname === "/services"
+                    ? "bg-blue-dark] text-white"
+                    : "text-gray-400"
+                  }
+                `}
+              >
+                <img
+                  src={wrench}
+                  alt=""
+                  className={location.pathname === "/services" ? "invert brightness-0" : ""}
+                />
+                Serviços
+              </a>
+          </nav>
+          <div className="flex items-center gap-2  text-white">
+            <span className="w-8 h-8 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
+              CS
+            </span>
+            <div className="flex flex-col">
+              <span className="text-sm">Carlos Silva</span>
+              <span className="text-xs text-gray-400">user.adm@test.com</span>
+            </div>
+          </div>
+        </div>
+      </section>
+       <section className="block  xl:hidden w-screen h-screen  absolute  top-0 ">        
+          <div className="flex justify-between items-center  ">
+            {/* GRUPO ESQUERDA */}
+            <div className="flex justify-center items-center gap-3.5 absolute top-7 left-6">
+              <img src={menu} alt="menu" className=""/>
+
+              <div className="flex justify-center gap-4 ">
+                <img src= { LogoIconLight } alt="LogoIconLight" className="h-11 w-11"/>
+                <div>
+                  <h1 className="text-xl text-gray-600 ">HelpDesk</h1>
+                  <span className="text-xxs text-blue-light ">Admin</span>
+                </div>
+              </div>
+            </div>
+            {/* GRUPO DIREITA */}
+            <div>
+              <img src={avatar} alt="avatar" className="absolute top-8 right-10" />
+            </div>
+          </div>            
+      </section>     
+
+      <form   className="w-full h-screen flex flex-col px-6 xl:px-16  gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4">
+        <h1 className="text-2xl font-bold">Técnicos</h1>
+        <div className="w-full  h-full bg-white rounded-2xl ">
+          <table className="w-full text-left">
+            
+            {/* Cabeçalho */}
+            <thead className="border-b border-gray-200">
+              <tr className="text-sm text-gray-400">
+                <th className="py-4 px-6 font-medium">Nome</th>               
+                <th className="py-4 px-6 font-medium  hidden xl:block">E-mail</th>                
+                <th className="py-4 px-6 font-medium ">Disponibilidade</th>
+                <th className="py-4 px-6 font-medium "></th>
+              </tr>
+            </thead>
+
+            {/* Primeira linha */}
+            <tbody>
+              <tr className="border-b last:border-none">
+                <td className="py-4 xl:px-6 text-sm">
+                  <div className="flex items-center gap-2 truncate max-w-[120px]">
+                    <span className="w-7 h-7 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
+                      AC
+                    </span>
+                    <span className="truncate max-w-[50px] xl:truncate-none xl:max-w-full " >André Costa</span>
+                  </div>
+                </td>
+                
+                <td className="py-6 px-6 hidden xl:block">                  
+                  <div className="text-sm text-gray-400  hidden xl:block  ">andre.costa@client.com	</div>
+                </td> 
+
+                <td className="py-6 px-6 w-4">
+                  <div className="flex gap-2">
+                    <span className="px-3 py-1 bg-gray-50 text-gray-200 text-xs rounded-full border border-gray-500">08:00</span>
+                    <span className="px-3 py-1 bg-gray-50 text-gray-200 text-xs rounded-full border hidden xl:block  border-gray-500">09:00</span>
+                    <span className="px-3 py-1 bg-gray-50 text-gray-200 text-xs rounded-full border  hidden xl:block  border-gray-500">10:00</span>
+                    <span className="px-3 py-1 bg-gray-50 text-gray-200 text-xs rounded-full border  hidden xl:block  border-gray-500">11:00</span>
+                    <span className="px-3 py-1 bg-gray-50 text-gray-200 text-xs rounded-full border  hidden xl:block  border-gray-500">12:00</span>
+                    <span className="px-3 py-1 bg-gray-50 text-gray-200 text-xs rounded-full border block xl:hidden  border-gray-500">+4</span>
+                  </div>
+                </td>              
+
+                <td className="py-4 px-1  w-4">
+                  <div className="h-9 w-9 bg-gray-500  hover:bg-gray-600 flex justify-center items-center rounded-sm cursor-pointer transition ease-linear">
+                    <a href="/detailtechnicians"  className=" rounded-lg "
+                    >                      
+                      <img src={pen} alt="" />
+                    </a>
+                  </div>
+                </td>
+              </tr>             
+            </tbody>
+          </table>
+        </div>     
+      </form>  
+    </div>
+    
+  )
+
 }
+
+
+ 

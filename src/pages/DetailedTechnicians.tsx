@@ -7,28 +7,14 @@ import menu from "../assets/icons/Menu.png"
 import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
 import pen from "../assets/chamados/pen-line.svg"
-import { useState } from "react";
-import { CustomerModal } from "../componentes/CustomerModal"; // importar modal
-import { DeleteCustomerModal } from "../componentes/DeleteCustomerModal"
-import { Trash2 } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
-export function Customers(){
-  const [modalOpen, setModalOpen] = useState(false);
-  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  const [selectedCustomer, setSelectedCustomer] = useState({ name: "" });
-  const location = useLocation();
-
-
-  const customerExample = {
-    initials: "AC",
-    name: "André Costa",
-    email: "andre.costa@client.com",
-  };
+export function DetailedTechnicians(){
+const location = useLocation();
 
   return(
     <div className="w-screen h-screen  xl:grid xl:grid-cols-[280px_1fr] relative  bg-gray-100 ">
-   <section className="  hidden xl:block  bg-gray-100 p-6 ">
+        <section className="  hidden xl:block  bg-gray-100 p-6 ">
         <div className="flex gap-3">
           <img src={Defaultogo} alt="Logo padrão" />
           <div className="flex flex-col">
@@ -122,7 +108,6 @@ export function Customers(){
           </div>
         </div>
       </section>
-
        <section className="block  xl:hidden w-screen h-screen  absolute  top-0 ">        
           <div className="flex justify-between items-center  ">
             {/* GRUPO ESQUERDA */}
@@ -144,86 +129,127 @@ export function Customers(){
           </div>            
       </section>     
 
-      <form   className="w-full h-screen flex flex-col px-6 xl:px-16  gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4">
-        <h1 className="text-2xl font-bold">Clientes</h1>
-        <div className="w-full bg-white rounded-2xl shadow-sm overflow-hidden">
-          <table className="w-full text-left">
+      <form   className="w-full  flex flex-col  xl:px-14 gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl ">
+        <div className="w-full h-full flex flex-col  bg-gray-50 px-6">
+              
+          {/* VOLTAR */}
+
+          {/* TÍTULO + BOTÕES (MOBILE VAI PARA BAIXO) */}
+      
+
+          <div className="flex flex-col px-28 "> 
+            <a href="/technicians" className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-500">
+              <span className="text-lg">←</span>
+              Voltar
+            </a>
             
-            {/* Cabeçalho */}
-            <thead className="border-b border-gray-200">
-              <tr className="text-sm text-gray-400">
-                <th className="py-4 xl:px-6 font-medium">Nome</th>               
-                <th className="py-4 xl:px-6 font-medium">E-mail</th>                
-                <th className="py-4 px-6 font-medium"></th>
-                <th className="py-4 px-6 font-medium"></th>
-              </tr>
-            </thead>
+            <div className="flex flex-col  xl:flex-row xl:items-center xl:justify-between gap-4 mb-8">
+              <h1 className="text-2xl font-bold text-blue-dark">
+                Perfil de técnico
+              </h1>
+              <div className="flex justify-between gap-3">
+                <button className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-500 text-gray-700 text-sm cursor-pointer">
+                  Cancelar
+                </button>
+                <button className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-200 text-gray-600 text-sm cursor-pointer">
+                  Salvar
+                </button>
+              </div>
+            </div>
+          </div>
 
-            {/* Primeira linha */}
-            <tbody>
-              <tr className="border-b last:border-none">
-                <td className="py-4 xl:px-6 text-sm">
-                  <div className="flex items-center gap-2 truncate max-w-[120px]">
-                    <span className="w-7 h-7 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
-                      {customerExample.initials}
-                    </span>
-                    <span className="truncate max-w-[50px] xl:truncate-none xl:max-w-full " >{customerExample.name}</span>
-                  </div>
-                </td>
-                
-                <td className="py-4 xl:px-6">                  
-                  <div className="text-sm text-gray-400 truncate max-w-[120px] xl:truncate-none xl:max-w-full ">{customerExample.email}	</div>
-                </td> 
+          {/* GRID PRINCIPAL */}
+          <div className="grid grid-cols-1 xl:grid-cols-[290px_1fr] gap-10 px-28">
 
-                <td className="py-4 px-1 w-4">
-                  <div className="h-9 w-9 bg-gray-500 hover:bg-gray-600 flex justify-center items-center rounded-sm transition ease-linear cursor-pointer" >
-                    <a onClick={() => {
-                      setSelectedCustomer({ name: "André Costa" });
-                      setDeleteModalOpen(true);
-                    }} 
-                     className=" rounded-lg cursor-pointer" >
-                      <Trash2 size={15} />
-                    </a>
-                  </div>
-                </td>              
+            {/* CARD DADOS PESSOAIS */}
+            <div className="border border-gray-500 rounded-xl p-6">
+              <h2 className="text-base font-semibold mb-1">Dados pessoais</h2>
+              <p className="text-xs mb-6">
+                Defina as informações do perfil de técnico
+              </p>
 
-                <td className="py-4 px-1  w-4">
-                  <div className="h-9 w-9 bg-gray-500  hover:bg-gray-600 flex justify-center items-center rounded-sm cursor-pointer transition ease-linear">
-                    <a onClick={() => setModalOpen(true)} 
-                    className=" rounded-lg "
-                    >                      
-                      <img src={pen} alt="" />
-                    </a>
-                  </div>
-                </td>
-              </tr>             
-            </tbody>
-          </table>
-        </div>     
-      </form>
+              {/* Nome */}
+              <label className="block text-xs font-semibold  mb-1">
+                NOME
+              </label>
+              <input
+                className="w-full border-b border-gray-300 py-2 mb-6 outline-none text-base"
+                placeholder="Nome completo"
+              />
 
-      <DeleteCustomerModal
-      open={deleteModalOpen}
-      onClose={() => setDeleteModalOpen(false)}
-      customer={selectedCustomer}
-      onConfirm={() => {
-        console.log("Excluir cliente:", selectedCustomer.name);
+              {/* Email */}
+              <label className="block text-xs font-semibold mb-1">
+                E-MAIL
+              </label>
+              <input
+                className="w-full border-b border-gray-300 py-2 mb-6 outline-none"
+                placeholder="exemplo@mail.com"
+              />
 
-        // Aqui você coloca o DELETE para API
-        // await api.delete(`/customers/${id}`)
+              {/* Senha */}
+              <label className="block text-xs font-semibold mb-1">
+                SENHA
+              </label>
+              <input
+                type="password"
+                className="w-full border-b border-gray-300 py-2 outline-none"
+                placeholder="Defina a senha de acesso"
+              />
 
-        setDeleteModalOpen(false);
-      }}
-      />
+              <p className="text-xs text-gray-400 mt-2">Mínimo de 6 dígitos</p>
+            </div>
 
+            {/* CARD HORÁRIOS */}
+            <div className=" border border-gray-500 rounded-xl p-6">
+              <h2 className="text-base font-semibold mb-1">Horários de atendimento</h2>
+              <p className="text-xs mb-6">
+                Selecione os horários de disponibilidade do técnico para atendimento
+              </p>
 
-         {/* MODAL */}
-      <CustomerModal
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        customer={customerExample}
-      />
+              {/* MANHÃ */}
+              <h3 className="text-xs font-bold mb-2">MANHÃ</h3>
+              <div className="flex flex-wrap gap-3 mb-6">
+                {["07:00", "08:00", "09:00", "10:00", "11:00", "12:00"].map((h) => (
+                  <button
+                    key={h}
+                    className="px-2.5 py-1.5 border border-gray-300 rounded-full text-xs"
+                  >
+                    {h}
+                  </button>
+                ))}
+              </div>
+
+              {/* TARDE */}
+              <h3 className="text-xs font-bold mb-2">TARDE</h3>
+              <div className="flex flex-wrap gap-3 mb-6">
+                {["13:00", "14:00", "15:00", "16:00", "17:00", "18:00"].map((h) => (
+                  <button
+                    key={h}
+                    className="px-2.5 py-1.5 border border-gray-300 rounded-full text-xs"
+                  >
+                    {h}
+                  </button>
+                ))}
+              </div>
+
+              {/* NOITE */}
+              <h3 className="text-xs font-bold mb-2">NOITE</h3>
+              <div className="flex flex-wrap gap-3">
+                {["19:00", "20:00", "21:00", "22:00", "23:00"].map((h) => (
+                  <button
+                    key={h}
+                    className="px-2.5 py-1.5 border border-gray-300 rounded-full text-xs"
+                  >
+                    {h}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>  
     </div>
+    
   )
 
 }

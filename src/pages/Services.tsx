@@ -41,7 +41,7 @@ export function Services() {
 
   return (
     <div className="w-screen h-screen  xl:grid xl:grid-cols-[280px_1fr] relative  bg-gray-100 ">
-      <section className="hidden xl:block w-screen h-screen bg-gray-100 p-6 ">
+   <section className="  hidden xl:block  bg-gray-100 p-6 ">
         <div className="flex gap-3">
           <img src={Defaultogo} alt="Logo padrão" />
           <div className="flex flex-col">
@@ -49,100 +49,91 @@ export function Services() {
             <span className="text-xxs text-blue-light">Admin</span>
           </div>
         </div>
-
-        <nav className="pt-5 px-4">
-          {/* CHAMADOS */}
-          <a
-            href="/"
-            className={`
-              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
-              ${
-                location.pathname === "/calls"
-                ? "bg-blue-dark text-white"
-                : "text-gray-400"
-              }
-            `}
-          >
-            <img
-              src={list}
-              alt=""
-              className={
-                location.pathname === "/calls" 
-                ? "invert brightness-0" 
-                : ""
-              }
-            />
-            Chamados
-          </a>
-
-          {/* TÉCNICOS */}
-          <a
-            href="/technicians"
-            className={`
-              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
-              ${
-                location.pathname === "/technicians"
-                ? "bg-blue-dark text-white"
-                : "text-gray-400"
-              }
-            `}
-          >
-            <img
-              src={tecnicos}
-              alt="icone users"
-              className={
-                location.pathname === "/technicians"
-                ? "invert brightness-0"
-                : ""
-              }
-            />
-            Técnicos
-          </a>
-
-          {/* CLIENTES */}
-          <a
-            href="/customers"
-            className={`
-              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
-              ${
-                location.pathname === "/customers"
-                ? "bg-blue-dark text-white"
-                : "text-gray-400"
-              }
-            `}
-          >
-            <img
-              src={briefcase}
-              alt="icone users"
-              className={
-                location.pathname === "/customers" ? "invert brightness-0" : ""
-              }
-            />
-            Clientes
-          </a>
-
-          {/* SERVIÇOS */}
-          <a
-            href="/services"
-            className={`
-              w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
-              ${
-                location.pathname === "/services"
-                ? "bg-blue-dark text-white"
-                : "text-gray-400"
-              }
-            `}
-          >
-            <img
-              src={wrench}
-              alt="icone users"
-              className={
-                location.pathname === "/services" ? "invert brightness-0" : ""
-              }
-            />
-            Serviços
-          </a>
-        </nav>
+        <div className="flex flex-col gap-120">
+          <nav className="pt-5 px-4">
+            {/* CHAMADOS */}
+              <a
+                href="/"
+                className={`
+                  w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+                  ${location.pathname === "/calls"
+                    ? "bg-blue-dark text-white"
+                    : "text-gray-400"
+                  }
+                `}
+              >
+                <img
+                  src={list}
+                  alt=""
+                  className={location.pathname === "/calls" ? "invert brightness-0" : ""}
+                />
+                Chamados
+              </a>
+              {/* TÉCNICOS */}
+              <a
+                href="/technicians"
+                className={`
+                  w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+                  ${location.pathname === "/technicians"
+                    ? "bg-blue-dark text-white"
+                    : "text-gray-400"
+                  }
+                `}
+              >
+                <img
+                  src={tecnicos}
+                  alt=""
+                  className={location.pathname === "/technicians" ? "invert brightness-0" : ""}
+                />
+                Técnicos
+              </a>
+              {/* CLIENTES */}
+              <a
+                href="/customers"
+                className={`
+                  w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+                  ${location.pathname === "/customers"
+                    ? "bg-blue-dark text-white"
+                    : "text-gray-400"
+                  }
+                `}
+              >
+                <img
+                  src={briefcase}
+                  alt=""
+                  className={location.pathname === "/customers" ? "invert brightness-0" : ""}
+                />
+                Clientes
+              </a>
+              {/* SERVIÇOS */}
+              <a
+                href="/services"
+                className={`
+                  w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
+                  ${location.pathname === "/services"
+                    ? "bg-blue-dark] text-white"
+                    : "text-gray-400"
+                  }
+                `}
+              >
+                <img
+                  src={wrench}
+                  alt=""
+                  className={location.pathname === "/services" ? "invert brightness-0" : ""}
+                />
+                Serviços
+              </a>
+          </nav>
+          <div className="flex items-center gap-2  text-white">
+            <span className="w-8 h-8 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
+              CS
+            </span>
+            <div className="flex flex-col">
+              <span className="text-sm">Carlos Silva</span>
+              <span className="text-xs text-gray-400">user.adm@test.com</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="block  xl:hidden w-screen h-screen  absolute  top-0 ">
@@ -174,7 +165,7 @@ export function Services() {
         </div>
       </section>
 
-      <form className="w-full h-full flex flex-col px-6 xl:px-16  gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4">
+      <form className="w-full h-screen flex flex-col px-6 xl:px-16  gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">Serviços</h1>
           <a
