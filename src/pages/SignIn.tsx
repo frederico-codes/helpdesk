@@ -1,20 +1,53 @@
 import { Input } from "../componentes/Input"
 import { Button } from "../componentes/Button"
-import { useState } from "react"
 import background_desktop from "../assets/Login_Background_Desktop.svg";
 import background_mobile from "../assets/Login_Background_Mobile.png";
 import Logo from "../assets/Logo.svg"
+import { AxiosError } from "axios";
+import { useActionState } from "react";
+import { api } from "../services/api"
+import { z, ZodError} from "zod"
+import { useAuth } from "../hooks/useAuth"
+
+
+const signInScheme = z.object({
+  email: z.string().email({ message: "E-mail inválido" }),
+  password: z.string().trim().min(1, {message: "Informe a senha"})
+})
+
+
 
 export function SignIn(){
-  const [email,setEmail] = useState("")
-  const [ password, setPassword ] = useState("")
-  const [ isLoading, setIsloading] = useState(false)
+ 
+  const [ state, formAction, isLoading ] = useActionState( signIn, null )
 
 
-  function onSubmit(e:React.FormEvent){
-    e.preventDefault()
-    console.log(email, password)
-  }
+  const auth = useAuth()
+
+  async function signIn(_: any, formData: FormData){       
+    try {
+      const data = signInScheme.parse({
+        email: formData.get("email"),
+        password: formData.get("password"),
+      })
+
+      const response = await api.post("/sessions",data)
+      auth.save(response.data)
+    } catch (error) {
+      console.log(error)
+
+      if(error instanceof ZodError){
+        return { message: error.issues[0].message }
+      }
+
+      if(error instanceof AxiosError){
+        return { message: error.response?.data.message }
+      }
+
+      return { message: "Não foi possível entrar" }
+    }
+    
+  }  
 
 
   return(
@@ -22,11 +55,12 @@ export function SignIn(){
       <section className="hidden xl:block w-screen h-screen">
         <img src={background_desktop} alt="imagem azul" className="w-screen h-screen object-cover"/>
       </section>
-       <section className="block  xl:hidden w-screen h-screen absolute -z-10">
+      <section className="block  xl:hidden w-screen h-screen absolute -z-10">
         <img src={background_mobile} alt="imagem azul" className="w-screen h-screen object-cover"/>
       </section>      
 
-      <form  onSubmit={onSubmit} className="w-full flex flex-col xl:px-36  gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-4">
+      <form  action ={ formAction }  className="w-full flex flex-col xl:px-36  gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-4">
+
         <div className="flex justify-center gap-2 mb-8">
           <img src= { Logo } alt="Logo"/>
           <h1 className="text-2xl --color-blue-dark font-bold">HelpDesk</h1>
@@ -36,23 +70,28 @@ export function SignIn(){
           <h1 className="text-xl font-bold">Acesse o portal</h1>
           <span>Entre usando seu e-mail e senha cadastrados</span>
           <div className="mt-10 flex flex-col gap-4">
-       
+      
             <Input
-            required
-            legend="E-mail"
-            type="email"
-            placeholder="exemplo@mail.com"
-            onChange={(e) => setEmail(e.target.value)}
+              name = "email"          
+              required
+              legend="E-mail"
+              type="email"
+              placeholder="exemplo@mail.com"              
             />
+
             <Input
-            required
-            legend="senha"
-            type="password"
-            placeholder="Digite sua senha"
-             onChange={(e) => setPassword(e.target.value)}
+              name = "password"
+              required
+              legend="senha"
+              type="password"
+              placeholder="Digite sua senha"                       
             />
+
+            <p className="text-sm text-red-600 text-center my-4 font-medium">
+              { state?.message }
+            </p>
           </div>
-         
+        
           <Button type="submit" isLoading={isLoading}>
             Entrar
           </Button>

@@ -8,6 +8,7 @@ import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
 import clockOpen from "../assets/chamados/clock-open.svg"
 import clock from "../assets/icons/clock.svg"
+import { Link } from "react-router-dom"
 
 export function DetailedCall(){
 
@@ -21,14 +22,13 @@ export function DetailedCall(){
             <span className="text-xxs text-blue-light">Admin</span>
           </div>
         </div>
-        <div className="flex flex-col gap-120">
+        <div className="flex flex-col gap-[600px]">
           <nav className="pt-5 px-4">
             {/* CHAMADOS */}
-              <a
-                href="/"
+              <Link to = "/"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
-                  ${location.pathname === "/calls"
+                  ${location.pathname === "/"
                     ? "bg-blue-dark text-white"
                     : "text-gray-400"
                   }
@@ -40,10 +40,9 @@ export function DetailedCall(){
                   className={location.pathname === "/calls" ? "invert brightness-0" : ""}
                 />
                 Chamados
-              </a>
+              </Link>
               {/* TÉCNICOS */}
-              <a
-                href="/technicians"
+              <Link to="/technicians"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
                   ${location.pathname === "/technicians"
@@ -58,10 +57,9 @@ export function DetailedCall(){
                   className={location.pathname === "/technicians" ? "invert brightness-0" : ""}
                 />
                 Técnicos
-              </a>
+              </Link>
               {/* CLIENTES */}
-              <a
-                href="/customers"
+              <Link to="/customers"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
                   ${location.pathname === "/customers"
@@ -76,14 +74,13 @@ export function DetailedCall(){
                   className={location.pathname === "/customers" ? "invert brightness-0" : ""}
                 />
                 Clientes
-              </a>
+              </Link>
               {/* SERVIÇOS */}
-              <a
-                href="/services"
+              <Link to="/services"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
                   ${location.pathname === "/services"
-                    ? "bg-blue-dark] text-white"
+                    ? "bg-blue-dark text-white"
                     : "text-gray-400"
                   }
                 `}
@@ -94,7 +91,7 @@ export function DetailedCall(){
                   className={location.pathname === "/services" ? "invert brightness-0" : ""}
                 />
                 Serviços
-              </a>
+              </Link>
           </nav>
           <div className="flex items-center gap-2  text-white">
             <span className="w-8 h-8 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
@@ -133,10 +130,10 @@ export function DetailedCall(){
 
           
           <div className="flex flex-col xl:ml-24 xl:w-[800px] "> 
-            <a href="/" className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-500">
+            <Link to="/" className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-500">
               <span className="text-lg">←</span>
               Voltar
-            </a>
+            </Link>
             
             <div className="flex flex-col  xl:flex-row xl:items-center xl:justify-between gap-4 mb-8">
               <h1 className="text-2xl font-bold text-blue-dark">

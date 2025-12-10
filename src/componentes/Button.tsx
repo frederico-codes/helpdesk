@@ -5,7 +5,8 @@ type Props = React.ComponentProps<"button"> &
 {
   isLoading?: boolean
   variant?: "base" | "light"
-}
+  className?: string
+} 
 
 
 const variants = {
@@ -19,6 +20,7 @@ const variants = {
 export function Button({
   children,
   isLoading, 
+  className,
   type="button",  
   variant = "base",
   ...rest
@@ -26,14 +28,15 @@ export function Button({
 ){
   return(
     <button 
-    type= { type }   
-    disabled= { isLoading }
-    {...rest} 
-    className={classMerge(["w-full flex justify-center items-center py-1.5 text-white rounded-lg cursor-pointer mt-10",
-    variants.button[variant]
-
-    ])}
-    
+      type= { type }   
+      disabled = { isLoading }
+      className={classMerge(["w-full flex justify-center items-center py-1.5 text-white rounded-lg cursor-pointer mt-10",
+      variants.button[variant],
+      isLoading && "cursor-progress", 
+      className    
+      ])}
+      
+      {...rest} 
     >
       { children }
     </button>

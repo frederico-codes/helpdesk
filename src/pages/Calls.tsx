@@ -11,6 +11,9 @@ import closed from "../assets/chamados/closed.svg"
 import pen from "../assets/chamados/pen-line.svg"
 import currently_assisting from "../assets/chamados/currently_assisting.svg"
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom"
+
+
 
 export function Calls(){
 const location = useLocation();
@@ -26,14 +29,13 @@ const location = useLocation();
             <span className="text-xxs text-blue-light">Admin</span>
           </div>
         </div>
-        <div className="flex flex-col gap-120">
+        <div className="flex flex-col gap-[600px]">
           <nav className="pt-5 px-4">
             {/* CHAMADOS */}
-              <a
-                href="/"
+              <Link to = "/"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
-                  ${location.pathname === "/calls"
+                  ${location.pathname === "/"
                     ? "bg-blue-dark text-white"
                     : "text-gray-400"
                   }
@@ -45,10 +47,9 @@ const location = useLocation();
                   className={location.pathname === "/calls" ? "invert brightness-0" : ""}
                 />
                 Chamados
-              </a>
+              </Link>
               {/* TÉCNICOS */}
-              <a
-                href="/technicians"
+              <Link to="/technicians"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
                   ${location.pathname === "/technicians"
@@ -63,10 +64,9 @@ const location = useLocation();
                   className={location.pathname === "/technicians" ? "invert brightness-0" : ""}
                 />
                 Técnicos
-              </a>
+              </Link>
               {/* CLIENTES */}
-              <a
-                href="/customers"
+              <Link to="/customers"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
                   ${location.pathname === "/customers"
@@ -81,14 +81,13 @@ const location = useLocation();
                   className={location.pathname === "/customers" ? "invert brightness-0" : ""}
                 />
                 Clientes
-              </a>
+              </Link>
               {/* SERVIÇOS */}
-              <a
-                href="/services"
+              <Link to="/services"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
                   ${location.pathname === "/services"
-                    ? "bg-blue-dark] text-white"
+                    ? "bg-blue-dark text-white"
                     : "text-gray-400"
                   }
                 `}
@@ -99,7 +98,7 @@ const location = useLocation();
                   className={location.pathname === "/services" ? "invert brightness-0" : ""}
                 />
                 Serviços
-              </a>
+              </Link>
           </nav>
           <div className="flex items-center gap-2  text-white">
             <span className="w-8 h-8 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
@@ -214,268 +213,14 @@ const location = useLocation();
                 {/* Botão Editar */}
                 <td className="py-4 xl:px-6">
                   <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm hover:bg-gray-600 transition ease-linear">
-                    <a href="/detailcalls" className=" rounded-lg cursor-pointer">
-                      <img src={pen} alt="" />
-                    </a>
+                  <Link to="/detailcalls" className="rounded-lg cursor-pointer">
+                    <img src={pen} alt="" />
+                  </Link>
+
                   </div>
                 </td>
               </tr>
-              <tr className="border-b last:border-none">
-
-                {/* Atualizado em */}
-                <td className="py-4 xl:px-6 text-xs text-gray-700">
-                  13/04/25 20:56
-                </td>
-
-                {/* ID */}
-                <td className="py-4 px-6 font-semibold text-xs text-gray-800 hidden xl:table-cell">
-                  00003
-                </td>
-
-                {/* Título e Serviço */}
-                <td className="py-4 xl:px-6">
-                  <div className="font-semibold text-gray-800 text-sm truncate max-w-[120px]">Backup não está funcionando	</div>
-                  <div className="text-gray-400 text-xs truncate max-w-[120px]">Recuperação de Dados	</div>
-                </td>
-
-                {/* Valor total */}
-                <td className="py-4 px-6 text-sm text-gray-700 hidden xl:table-cell">
-                  R$ 180,00
-                </td>
-
-                {/* Cliente */}
-                <td className="py-4 px-6 text-sm hidden xl:table-cell ">
-                  <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
-                      AC
-                    </span>
-                    André Costa
-                  </div>
-                </td>
-
-                {/* Técnico */}
-                <td className="py-4 px-6 text-sm hidden xl:table-cell">
-                  <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
-                      CS
-                    </span>
-                    Carlos Silva
-                  </div>
-                </td>
-
-                {/* Status */}
-                <td className="py-4 xl:px-6">
-                  <span className="hidden xl:inline-flex  items-center gap-2 xl:bg-blue-100 text-feedback-progress text-xs px-3 py-1 rounded-full">
-                    
-                    {/* Ícone sempre visível */}
-                    <img src={currently_assisting} alt="ícone de relógio vermelho" />
-
-                    {/* Texto só no XL */}
-                    <span className="hidden xl:inline">Em atendimento</span>
-                  </span>
-                </td>
-
-                {/* Botão Editar */}
-                <td className="py-4 xl:px-6">
-                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm hover:bg-gray-600 transition ease-linear">
-                    <a href="/detailcalls" className=" rounded-lg cursor-pointer">
-                      <img src={pen} alt="" />
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr className="border-b last:border-none">
-
-                {/* Atualizado em */}
-                <td className="py-4 xl:px-6 text-xs text-gray-700">
-                  13/04/25 20:56
-                </td>
-
-                {/* ID */}
-                <td className="py-4 px-6 font-semibold text-xs text-gray-800 hidden xl:table-cell">
-                  00003
-                </td>
-
-                {/* Título e Serviço */}
-                <td className="py-4 xl:px-6">
-                  <div className="font-semibold text-gray-800 text-sm truncate max-w-[120px]">Backup não está funcionando	</div>
-                  <div className="text-gray-400 text-xs truncate max-w-[120px]">Recuperação de Dados	</div>
-                </td>
-
-                {/* Valor total */}
-                <td className="py-4 px-6 text-sm text-gray-700 hidden xl:table-cell">
-                  R$ 180,00
-                </td>
-
-                {/* Cliente */}
-                <td className="py-4 px-6 text-sm hidden xl:table-cell ">
-                  <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
-                      AC
-                    </span>
-                    André Costa
-                  </div>
-                </td>
-
-                {/* Técnico */}
-                <td className="py-4 px-6 text-sm hidden xl:table-cell">
-                  <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
-                      CS
-                    </span>
-                    Carlos Silva
-                  </div>
-                </td>
-
-                {/* Status */}
-                <td className="py-4 xl:px-6">
-                  <span className="hidden xl:inline-flex  items-center gap-2 xl:bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full">
-                    
-                    {/* Ícone sempre visível */}
-                    <img src={clockOpen} alt="ícone de relógio vermelho" />
-
-                    {/* Texto só no XL */}
-                    <span className="hidden xl:inline">Aberto</span>
-                  </span>
-                </td>
-
-                {/* Botão Editar */}
-                <td className="py-4 xl:px-6">
-                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm hover:bg-gray-600 transition ease-linear">
-                    <a href="/detailcalls" className=" rounded-lg cursor-pointer">
-                      <img src={pen} alt="" />
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr className="border-b last:border-none">
-
-                {/* Atualizado em */}
-                <td className="py-4 xl:px-6 text-xs text-gray-700">
-                  13/04/25 20:56
-                </td>
-
-                {/* ID */}
-                <td className="py-4 px-6 font-semibold text-xs text-gray-800 hidden xl:table-cell">
-                  00003
-                </td>
-
-                {/* Título e Serviço */}
-                <td className="py-4 xl:px-6">
-                  <div className="font-semibold text-gray-800 text-sm truncate max-w-[120px]">Backup não está funcionando	</div>
-                  <div className="text-gray-400 text-xs truncate max-w-[120px]">Recuperação de Dados	</div>
-                </td>
-
-                {/* Valor total */}
-                <td className="py-4 px-6 text-sm text-gray-700 hidden xl:table-cell">
-                  R$ 180,00
-                </td>
-
-                {/* Cliente */}
-                <td className="py-4 px-6 text-sm hidden xl:table-cell ">
-                  <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
-                      AC
-                    </span>
-                    André Costa
-                  </div>
-                </td>
-
-                {/* Técnico */}
-                <td className="py-4 px-6 text-sm hidden xl:table-cell">
-                  <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
-                      CS
-                    </span>
-                    Carlos Silva
-                  </div>
-                </td>
-
-                {/* Status */}
-                <td className="py-4 xl:px-6">
-                  <span className="hidden xl:inline-flex  items-center gap-2 xl:bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full">
-                    
-                    {/* Ícone sempre visível */}
-                    <img src={clockOpen} alt="ícone de relógio vermelho" />
-
-                    {/* Texto só no XL */}
-                    <span className="hidden xl:inline">Aberto</span>
-                  </span>
-                </td>
-
-                {/* Botão Editar */}
-                <td className="py-4 xl:px-6">
-                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm hover:bg-gray-600 transition ease-linear">
-                    <a href="/detailcalls" className=" rounded-lg cursor-pointer">
-                      <img src={pen} alt="" />
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr className="border-b last:border-none">
-
-                {/* Atualizado em */}
-                <td className="py-4 xl:px-6 text-xs text-gray-700">
-                  13/04/25 20:56
-                </td>
-
-                {/* ID */}
-                <td className="py-4 px-6 font-semibold text-xs text-gray-800 hidden xl:table-cell">
-                  00003
-                </td>
-
-                {/* Título e Serviço */}
-                <td className="py-4 xl:px-6">
-                  <div className="font-semibold text-gray-800 text-sm truncate max-w-[120px]">Backup não está funcionando	</div>
-                  <div className="text-gray-400 text-xs truncate max-w-[120px]">Recuperação de Dados	</div>
-                </td>
-
-                {/* Valor total */}
-                <td className="py-4 px-6 text-sm text-gray-700 hidden xl:table-cell">
-                  R$ 180,00
-                </td>
-
-                {/* Cliente */}
-                <td className="py-4 px-6 text-sm hidden xl:table-cell ">
-                  <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
-                      AC
-                    </span>
-                    André Costa
-                  </div>
-                </td>
-
-                {/* Técnico */}
-                <td className="py-4 px-6 text-sm hidden xl:table-cell">
-                  <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
-                      CS
-                    </span>
-                    Carlos Silva
-                  </div>
-                </td>
-
-                {/* Status */}
-                <td className="py-4 xl:px-6">
-                  <span className="hidden xl:inline-flex  items-center gap-2 xl:bg-green-200 text-feedback-done text-xs px-3 py-1 rounded-full">
-                    
-                    {/* Ícone sempre visível */}
-                    <img src={closed} alt="ícone de relógio vermelho" />
-
-                    {/* Texto só no XL */}
-                    <span className="hidden xl:inline">Aberto</span>
-                  </span>
-                </td>
-
-                {/* Botão Editar */}
-                <td className="py-4 xl:px-6">
-                  <div className="h-9 w-9 bg-gray-500 flex justify-center items-center rounded-sm  hover:bg-gray-600 transition ease-linear">
-                    <a href="/detailcalls" className=" rounded-lg cursor-pointer">
-                      <img src={pen} alt="" />
-                    </a>
-                  </div>
-                </td>
-              </tr>
+             
             </tbody>
           </table>
         </div>     

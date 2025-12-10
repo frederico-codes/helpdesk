@@ -8,6 +8,7 @@ import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
 import pen from "../assets/chamados/pen-line.svg"
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 export function Technicians(){
 const location = useLocation();
@@ -22,14 +23,13 @@ const location = useLocation();
             <span className="text-xxs text-blue-light">Admin</span>
           </div>
         </div>
-        <div className="flex flex-col gap-120">
-          <nav className="pt-5 px-4">
+        <div className="flex flex-col gap-[600px]">
+           <nav className="pt-5 px-4">
             {/* CHAMADOS */}
-              <a
-                href="/"
+              <Link to = "/"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
-                  ${location.pathname === "/calls"
+                  ${location.pathname === "/"
                     ? "bg-blue-dark text-white"
                     : "text-gray-400"
                   }
@@ -41,10 +41,9 @@ const location = useLocation();
                   className={location.pathname === "/calls" ? "invert brightness-0" : ""}
                 />
                 Chamados
-              </a>
+              </Link>
               {/* TÉCNICOS */}
-              <a
-                href="/technicians"
+              <Link to="/technicians"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
                   ${location.pathname === "/technicians"
@@ -59,10 +58,9 @@ const location = useLocation();
                   className={location.pathname === "/technicians" ? "invert brightness-0" : ""}
                 />
                 Técnicos
-              </a>
+              </Link>
               {/* CLIENTES */}
-              <a
-                href="/customers"
+              <Link to="/customers"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
                   ${location.pathname === "/customers"
@@ -77,14 +75,13 @@ const location = useLocation();
                   className={location.pathname === "/customers" ? "invert brightness-0" : ""}
                 />
                 Clientes
-              </a>
+              </Link>
               {/* SERVIÇOS */}
-              <a
-                href="/services"
+              <Link to="/services"
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
                   ${location.pathname === "/services"
-                    ? "bg-blue-dark] text-white"
+                    ? "bg-blue-dark text-white"
                     : "text-gray-400"
                   }
                 `}
@@ -95,7 +92,7 @@ const location = useLocation();
                   className={location.pathname === "/services" ? "invert brightness-0" : ""}
                 />
                 Serviços
-              </a>
+              </Link>
           </nav>
           <div className="flex items-center gap-2  text-white">
             <span className="w-8 h-8 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
@@ -173,10 +170,10 @@ const location = useLocation();
 
                 <td className="py-4 px-1  w-4">
                   <div className="h-9 w-9 bg-gray-500  hover:bg-gray-600 flex justify-center items-center rounded-sm cursor-pointer transition ease-linear">
-                    <a href="/detailtechnicians"  className=" rounded-lg "
+                    <Link to="/detailtechnicians"  className=" rounded-lg "
                     >                      
                       <img src={pen} alt="" />
-                    </a>
+                    </Link>
                   </div>
                 </td>
               </tr>             

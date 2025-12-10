@@ -3,17 +3,61 @@ import { Button } from "../componentes/Button"
 import { useState } from "react"
 import background_desktop from "../assets/Login_Background_Desktop.svg";
 import background_mobile from "../assets/Login_Background_Mobile.png";
+import { z, ZodError } from "zod";
 import Logo from "../assets/Logo.svg"
+import { api } from "../services/api";
+import { useNavigate } from "react-router";
+import { AxiosError } from "axios";
+
+const signUpSchema = z.object({
+  name: z.string().trim().min(1, { message: "Informe o nome"}),
+  email: z.string().email({ message: "E-mail inválido"}),
+  password: z.string().min(6, { message: "Senha deve ter pelo menos 6 digitos" }),  
+})
+
 
 export function SignUp(){
+  const  [name, setName ] = useState("")
   const [email,setEmail] = useState("")
-  const [ password, setPassword ] = useState("")
+  const [ password, setPassword ] = useState("") 
   const [ isLoading, setIsloading] = useState(false)
 
+  const navigate = useNavigate()
 
-  function onSubmit(e:React.FormEvent){
+  async function onSubmit(e:React.FormEvent){
     e.preventDefault()
-    console.log(email, password)
+
+    try {
+      setIsloading(true)
+
+      const data = signUpSchema.parse({
+        name,
+        email,
+        password,       
+      })
+
+      await api.post("/users", data)
+
+      if(confirm("Cadastrado com sucesso. Ir para tela de entrar?")){
+        navigate("/")
+      }
+
+    } catch (error) {
+      if(error instanceof ZodError){
+        return alert(error.issues[0].message)
+      }
+
+      if( error instanceof AxiosError){
+        return alert( error.response?.data.message)
+      }
+
+      alert("Não foi possível cadastrar")  
+
+    }finally{
+      setIsloading(false)
+    }
+
+    
   }
 
 
@@ -22,7 +66,7 @@ export function SignUp(){
       <section className="hidden xl:block w-screen h-screen">
         <img src={background_desktop} alt="imagem azul" className="w-screen h-screen object-cover"/>
       </section>
-       <section className="block  xl:hidden w-screen h-screen absolute -z-10">
+      <section className="block  xl:hidden w-screen h-screen absolute -z-10">
         <img src={background_mobile} alt="imagem azul" className="w-screen h-screen object-cover"/>
       </section>      
 
@@ -41,8 +85,9 @@ export function SignUp(){
             legend="Nome"
             type="text"
             placeholder="Digite o nome completo"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             />
+
             <Input
             required
             legend="E-mail"
@@ -50,12 +95,13 @@ export function SignUp(){
             placeholder="exemplo@mail.com"
             onChange={(e) => setEmail(e.target.value)}
             />
+
             <Input
             required
             legend="senha"
             type="password"
             placeholder="Digite sua senha"
-             onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <span className="mb-10">Mínimo de 6 dígitos</span>

@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router";
-import { MyCallingsCustomers } from "../pages/MyCallingsCustomers"
+import { Customers } from "../pages/Customers"
 
 
 
 export function CustomerRoutes(){
   return(
     <Routes>
-        <Route path="/mycallingsCustomers" element={<MyCallingsCustomers/>}/>
+        <Route path="/customers" element={<Customers/>}/>
     </Routes>
   )
 }
