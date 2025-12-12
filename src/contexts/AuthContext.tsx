@@ -6,6 +6,7 @@ import type { UserApiResponse, Session } from "../dtos/user"
 type AuthContextType = {
   session: Session | null
   save: (data: UserApiResponse) => void
+  remove:() => void
 }
 
 const LOCAL_STORAGE_KEY = "@helpdesk"
@@ -27,6 +28,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setSession(sessionFormatted)
   }
 
+  function remove(){
+    setSession(null)
+
+    localStorage.removeItem(`${LOCAL_STORAGE_KEY}:user`)
+    localStorage.removeItem(`${LOCAL_STORAGE_KEY}:token`)
+
+    window.location.assign("/")
+  }
+
   function loadUser(){
     const user = localStorage.getItem(`${LOCAL_STORAGE_KEY}:user`)
     const token = localStorage.getItem(`${ LOCAL_STORAGE_KEY}:token`)
@@ -45,7 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
 
   return (
-    <AuthContext.Provider value={{ session, save }}>
+    <AuthContext.Provider value={{ session, save, remove }}>
       {children}
     </AuthContext.Provider>
   )

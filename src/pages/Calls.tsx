@@ -7,9 +7,7 @@ import menu from "../assets/icons/Menu.png"
 import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
 import clockOpen from "../assets/chamados/clock-open.svg"
-import closed from "../assets/chamados/closed.svg"
 import pen from "../assets/chamados/pen-line.svg"
-import currently_assisting from "../assets/chamados/currently_assisting.svg"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom"
 
