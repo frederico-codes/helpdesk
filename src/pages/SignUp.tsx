@@ -70,7 +70,7 @@ export function SignUp(){
         <img src={background_mobile} alt="imagem azul" className="w-screen h-screen object-cover"/>
       </section>      
 
-      <form  onSubmit={onSubmit} className="w-full   flex flex-col xl:px-36  gap-4 bg-white absolute xl:relative py-14  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-3">
+      <form  onSubmit={onSubmit} className="w-full   flex flex-col xl:px-50  gap-4 bg-white absolute xl:relative py-14  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-3">
         <div className="flex justify-center gap-2 mb-8">
           <img src= { Logo } alt="Logo"/>
           <h1 className="text-2xl --color-blue-dark font-bold">HelpDesk</h1>

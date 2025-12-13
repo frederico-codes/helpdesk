@@ -6,13 +6,13 @@ import list from "../assets/icons/clipboard-list.svg"
 import menu from "../assets/icons/Menu.png"
 import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
-import closed from "../assets/chamados/closed.svg"
+import closed from "../assets/icons/closed.svg"
 import circleCheck from "../assets/icons/circle-check-big.svg"
-import currently_assisting from "../assets/chamados/currently_assisting.svg"
+import currently_assisting from "../assets/icons/currently_assisting.svg"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom"
-import clock_open from "../assets/chamados/clock-open.svg"
-import pen from "../assets/chamados/pen-line.svg"
+import clock_open from "../assets/icons/clock-open.svg"
+import pen from "../assets/icons/pen-line.svg"
 
 
 export function MyCallingsTechnicians(){

@@ -6,7 +6,7 @@ import list from "../assets/icons/clipboard-list.svg"
 import menu from "../assets/icons/Menu.png"
 import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
-import clockOpen from "../assets/chamados/clock-open.svg"
+import clockOpen from "../assets/icons/clock-open.svg"
 import clock from "../assets/icons/clock.svg"
 import { Link } from "react-router-dom"
 

@@ -6,12 +6,12 @@ import list from "../assets/icons/clipboard-list.svg";
 import menu from "../assets/icons/Menu.png";
 import LogoIconLight from "../assets/Logo_IconLight.png";
 import avatar from "../assets/Avatar.svg";
-import pen from "../assets/chamados/pen-line.svg";
+import pen from "../assets/icons/pen-line.svg";
 import { useState } from "react";
 import { ServiceModal } from "../componentes/ServiceModal"; // importar modal
 import disable from "../assets/icons/disable.svg";
 import { useLocation } from "react-router-dom";
-import clock_open from "../assets/chamados/clock-open.svg";
+import clock_open from "../assets/icons/clock-open.svg";
 import plus from "../assets/icons/plus.svg";
 import { Link } from "react-router-dom"
 

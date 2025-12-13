@@ -1,5 +1,6 @@
 import { X } from "phosphor-react";
 import bin from "../assets/icons/bin.svg"
+import uiface from "../assets/uifaces-popular-avatar (2).jpg"
 
 interface Props {
   open: boolean
@@ -7,7 +8,7 @@ interface Props {
 }
 
 
-export function ProfileModal({ open, onClose }: Props) {
+export function ProfileModalCustomer({ open, onClose }: Props) {
   if (!open) return null;
 
   return (
@@ -41,8 +42,8 @@ export function ProfileModal({ open, onClose }: Props) {
           {/* FOTO + BOTÕES */}
           <div className="flex items-center gap-4">
             <img
-              src="https://via.placeholder.com/60"
-              alt="avatar"
+              src={uiface}
+              alt="uiavatar"
               className="h-14 w-14 rounded-full object-cover"
             />
 
@@ -126,32 +127,7 @@ export function ProfileModal({ open, onClose }: Props) {
                 Alterar
               </button>
             </div>
-          </div>
-
-          {/* DISPONIBILIDADE */}
-          <div>
-            <p className="text-xs font-semibold text-gray-500">Disponibilidade</p>
-            <p className="text-gray-400 mb-2">
-              Horários de atendimento definidos pelo admin
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              {["09:00", "10:00", "12:00", "13:00", "15:00", "16:00"].map(
-                (h, i) => (
-                <button
-                  key={i}
-                  className="
-                    px-3 py-1 rounded-full border border-gray-500
-                    text-xs text-gray-700 bg-white
-                    hover:bg-gray-500 cursor-pointer
-                  "
-                >
-                  {h}
-                </button>
-                )
-              )}
-            </div>
-          </div>
+          </div>       
         </div>
 
         {/* BOTÃO SALVAR */}

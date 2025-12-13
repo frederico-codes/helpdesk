@@ -6,7 +6,7 @@ import list from "../assets/icons/clipboard-list.svg"
 import menu from "../assets/icons/Menu.png"
 import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
-import pen from "../assets/chamados/pen-line.svg"
+import pen from "../assets/icons/pen-line.svg"
 import { useState } from "react";
 import { CustomerModal } from "../componentes/CustomerModal"; // importar modal
 import { DeleteCustomerModal } from "../componentes/DeleteCustomerModal"

@@ -6,7 +6,7 @@ import list from "../assets/icons/clipboard-list.svg"
 import menu from "../assets/icons/Menu.png"
 import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
-import pen from "../assets/chamados/pen-line.svg"
+import pen from "../assets/icons/pen-line.svg"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom"
 

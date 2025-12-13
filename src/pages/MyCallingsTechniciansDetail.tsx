@@ -5,7 +5,7 @@ import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom"
-import clock_open from "../assets/chamados/clock-open.svg"
+import clock_open from "../assets/icons/clock-open.svg"
 import clock from "../assets/icons/clock.svg"
 import clock_2 from "../assets/icons/clock_2.svg"
 import bin from "../assets/icons/bin.svg"
@@ -17,8 +17,8 @@ import { ProfileModal } from "../componentes/ProfileModal"
 
 
 export function MyCallingsTechniciansDetail(){
-  const [modalOpen, setModalOpen] = useState(false)
   const location = useLocation();
+  const [modalOpen, setModalOpen] = useState(false)
   const [open, setOpen] = useState(false)
   const [openProfile, setOpenProfile] = useState(false)
 
@@ -279,24 +279,22 @@ export function MyCallingsTechniciansDetail(){
         open={open} 
         onClose={() => setOpen(false)}
         onOpenProfile={() => {
-        setOpen(false);        // fecha o modal preto
-        setOpenProfile(true);  // abre o modal de perfil
-      }}
-/>
+          setOpen(false);        // fecha o modal preto
+          setOpenProfile(true);  // abre o modal de perfil
+        }}
+      />
 
-
-
-         {/* MODAL */}
+          {/* MODAL */}
       <ProfileModal 
-  open={openProfile} 
-  onClose={() => setOpenProfile(false)} 
-/>
-
+        open={openProfile} 
+        onClose={() => setOpenProfile(false)} 
+      />
 
       <MyCallingsTechniciansDetailModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
       /> 
+
     </div>
   )
 
