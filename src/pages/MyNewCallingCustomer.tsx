@@ -1,13 +1,8 @@
 import Defaultogo from "../assets/Defaultogo.svg"
-import tecnicos from "../assets/icons/tecnicos.svg"
-import briefcase from "../assets/icons/briefcase.svg"
-import wrench from "../assets/icons/wrench.svg"
 import list from "../assets/icons/clipboard-list.svg"
 import menu from "../assets/icons/Menu.png"
 import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
-import clockOpen from "../assets/icons/clock-open.svg"
-import pen from "../assets/icons/pen-line.svg"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom"
 import plus from "../assets/icons/plus.svg"
@@ -55,7 +50,7 @@ const [openProfile, setOpenProfile] = useState(false)
                 
                 className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
-                  ${location.pathname === "/technicians"
+                  ${location.pathname === "/chamados/novo"
                     ? "bg-blue-dark text-white"
                     : "text-gray-400"
                   }

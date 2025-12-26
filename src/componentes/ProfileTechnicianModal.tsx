@@ -1,5 +1,6 @@
 import { X } from "phosphor-react";
 import bin from "../assets/icons/bin.svg"
+import uiface from "../assets/uifaces-popular-avatar (2).jpg"
 
 interface Props {
   open: boolean
@@ -7,7 +8,7 @@ interface Props {
 }
 
 
-export function ProfileModal({ open, onClose }: Props) {
+export function ProfileTechnicianModal({ open, onClose }: Props) {
   if (!open) return null;
 
   return (
@@ -41,7 +42,7 @@ export function ProfileModal({ open, onClose }: Props) {
           {/* FOTO + BOTÕES */}
           <div className="flex items-center gap-4">
             <img
-              src="https://via.placeholder.com/60"
+              src={uiface}
               alt="avatar"
               className="h-14 w-14 rounded-full object-cover"
             />

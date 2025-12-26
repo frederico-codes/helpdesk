@@ -16,6 +16,8 @@ import { ProfileModalCustomer } from "../componentes/ProfileModalCustomer"
 import { useState } from "react"
 
 
+
+
 export function MyCallingsCustomers(){
 const location = useLocation();
 const [modalOpen, setModalOpen] = useState(false)
@@ -30,7 +32,7 @@ const [openProfile, setOpenProfile] = useState(false)
           <img src={Defaultogo} alt="Logo padrão"/>
           <div className="flex flex-col">
             <h1 className="text-gray-600 text-xl">HelpDesk</h1>
-            <span className="text-xxs text-blue-light">Admin</span>
+            <span className="text-xxs text-blue-light">cliente</span>
           </div>
         </div>
         <div className="flex flex-col justify-between h-screen pb-28">
@@ -68,11 +70,11 @@ const [openProfile, setOpenProfile] = useState(false)
             </Link>             
           </nav>
 
-          <div className="flex items-center gap-2  text-white">
+          <div className="flex items-center gap-2  text-white cursor-pointer"  onClick={() => setOpen(true)}>
             <span className="w-8 h-8 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
               CS
             </span>
-            <div className="flex flex-col"  onClick={() => setOpen(true)}>
+            <div className="flex flex-col">
               <span className="text-sm">Carlos Silva</span>
               <span className="text-xs text-gray-400">user.adm@test.com</span>
             </div>
@@ -342,6 +344,8 @@ const [openProfile, setOpenProfile] = useState(false)
         open={openProfile} 
         onClose={() => setOpenProfile(false)} 
       />
+      
+      
 
       <MyCallingsCustomersDetailModal
         open={modalOpen}

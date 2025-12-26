@@ -8,6 +8,7 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import { ProfileOptionsModal } from "../componentes/ProfileOptionsModal"
 import { ProfileModalCustomer } from "../componentes/ProfileModalCustomer"
+import clockOpen from "../assets/icons/clock-open.svg"
 
 
 
@@ -23,7 +24,7 @@ export function MyCallingsCustomersDetail(){
           <img src={Defaultogo} alt="Logo padrão" />
           <div className="flex flex-col">
             <h1 className="text-gray-600 text-xl">HelpDesk</h1>
-            <span className="text-xxs text-blue-light">Admin</span>
+            <span className="text-xxs text-blue-light">cliente</span>
           </div>
         </div>
         <div className="flex flex-col gap-[720px]">
@@ -81,7 +82,7 @@ export function MyCallingsCustomersDetail(){
       <form  className="w-full h-screen flex flex-col px-2 xl:px-44  gap-4 bg-white absolute xl:relative rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4 ">  
         <div className=" bg-gray-50 px-4 py-6 xl:px-0 mt-6">
           {/* VOLTAR */}
-          <Link to="/" className="mb-4 flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700">
+          <Link to="/" className="mb-4 flex items-center gap-2 text-sm text-gray-700 hover:text-gray-500 cursor-pointer">
             ← Voltar
           </Link>
 
@@ -98,12 +99,13 @@ export function MyCallingsCustomersDetail(){
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               {/* ID + STATUS */}
               <div className="mb-2 flex items-center justify-between">
-                <span className="text-sm font-medium text-gray-500">
+                <span className="text-sm font-medium text-gray-700">
                   00004
                 </span>
 
                 <span className="inline-flex items-center gap-1 rounded-full bg-pink-100 px-3 py-1 text-xs font-medium text-pink-600">
-                  ❓ Aberto
+                  <img src={clockOpen} alt="" />
+                  Aberto
                 </span>
               </div>
 
@@ -174,7 +176,7 @@ export function MyCallingsCustomersDetail(){
                     <p className="text-sm font-medium text-gray-900">
                       Carlos Silva
                     </p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-700">
                       carlos.silva@test.com
                     </p>
                   </div>

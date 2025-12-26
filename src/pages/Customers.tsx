@@ -34,7 +34,7 @@ export function Customers(){
           <img src={Defaultogo} alt="Logo padrão" />
           <div className="flex flex-col">
             <h1 className="text-gray-600 text-xl">HelpDesk</h1>
-            <span className="text-xxs text-blue-light">Admin</span>
+            <span className="text-xxs text-blue-light">cliente</span>
           </div>
         </div>
         <div className="flex flex-col gap-[600px]">

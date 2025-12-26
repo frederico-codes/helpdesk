@@ -9,6 +9,7 @@ import avatar from "../assets/Avatar.svg"
 import pen from "../assets/icons/pen-line.svg"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom"
+import plus from "../assets/icons/plus.svg";
 
 export function Technicians(){
 const location = useLocation();
@@ -20,7 +21,7 @@ const location = useLocation();
           <img src={Defaultogo} alt="Logo padrão" />
           <div className="flex flex-col">
             <h1 className="text-gray-600 text-xl">HelpDesk</h1>
-            <span className="text-xxs text-blue-light">Admin</span>
+            <span className="text-xxs text-blue-light">Técnico</span>
           </div>
         </div>
         <div className="flex flex-col gap-[600px]">
@@ -127,7 +128,17 @@ const location = useLocation();
       </section>     
 
       <form   className="w-full h-screen flex flex-col px-6 xl:px-16  gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4">
-        <h1 className="text-2xl font-bold">Técnicos</h1>
+        <div className="flex justify-between items-center">
+          <h1 className="text-2xl font-bold">Técnicos</h1>
+          <Link to="/detailtechnicians"
+            className="flex justify-center items-center gap-2 bg-gray-800 px-3 py-2 rounded-sm hover:bg-gray-300 cursor-pointer
+          transition ease-linear"
+           
+          >
+            <img src={plus} alt="" className="w-4 h-4" />
+            <span className="text-gray-600 text-sm hidden xl:block">Novo</span>
+          </Link>
+        </div>
         <div className="w-full  h-full bg-white rounded-2xl ">
           <table className="w-full text-left">
             
@@ -170,7 +181,7 @@ const location = useLocation();
 
                 <td className="py-4 px-1  w-4">
                   <div className="h-9 w-9 bg-gray-500  hover:bg-gray-600 flex justify-center items-center rounded-sm cursor-pointer transition ease-linear">
-                    <Link to="/detailtechnicians"  className=" rounded-lg "
+                    <Link to=""  className=" rounded-lg "
                     >                      
                       <img src={pen} alt="" />
                     </Link>

@@ -1,76 +1,78 @@
-import Defaultogo from "../assets/Defaultogo.svg"
-import list from "../assets/icons/clipboard-list.svg"
-import menu from "../assets/icons/Menu.png"
-import LogoIconLight from "../assets/Logo_IconLight.png"
-import avatar from "../assets/Avatar.svg"
+import Defaultogo from "../assets/Defaultogo.svg";
+import list from "../assets/icons/clipboard-list.svg";
+import menu from "../assets/icons/Menu.png";
+import LogoIconLight from "../assets/Logo_IconLight.png";
+import avatar from "../assets/Avatar.svg";
 import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom"
-import clock_open from "../assets/icons/clock-open.svg"
-import clock from "../assets/icons/clock.svg"
-import clock_2 from "../assets/icons/clock_2.svg"
-import bin from "../assets/icons/bin.svg"
-import { useState } from "react"
-import { MyCallingsTechniciansDetailModal } from "../componentes/MyCallingsTechniciansDetailModal"
-import { ProfileOptionsModal } from "../componentes/ProfileOptionsModal"
-import { ProfileModal } from "../componentes/ProfileModal"
+import { Link } from "react-router-dom";
+import clock_open from "../assets/icons/clock-open.svg";
+import clock from "../assets/icons/clock.svg";
+import clock_2 from "../assets/icons/clock_2.svg";
+import bin from "../assets/icons/bin.svg";
+import { useState } from "react";
+import { MyCallingsTechniciansDetailModalAdditionalService } from "../componentes/MyCallingsTechniciansDetailModalAdditionalService";
 
-
-
-export function MyCallingsTechniciansDetail(){
+export function MyCallingsTechniciansDetail() {
   const location = useLocation();
-  const [modalOpen, setModalOpen] = useState(false)
-  const [open, setOpen] = useState(false)
-  const [openProfile, setOpenProfile] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false);
 
-  return(
+  return (
     <div className="w-screen h-screen  xl:grid xl:grid-cols-[280px_1fr] relative  bg-gray-100 ">
       <section className=" hidden xl:block  bg-gray-100 px-6 pt-6 ">
         <div className="flex gap-3">
           <img src={Defaultogo} alt="Logo padrão" />
           <div className="flex flex-col">
             <h1 className="text-gray-600 text-xl">HelpDesk</h1>
-            <span className="text-xxs text-blue-light">Admin</span>
+            <span className="text-xxs text-blue-light">Técnico</span>
           </div>
         </div>
         <div className="flex flex-col gap-[720px]">
           <nav className="pt-5 px-4">
             {/* CHAMADOS */}
-              <Link to = "#"
-                className={`
+            <Link
+              to="#"
+              className={`
                   w-[180px] flex items-center gap-2 text-sm p-3 outline-0 rounded-sm
-                  ${location.pathname === "/"
-                    ? "bg-blue-dark text-white"
-                    : "text-gray-400"
+                  ${
+                    location.pathname === "/"
+                      ? "bg-blue-dark text-white"
+                      : "text-gray-400"
                   }
                 `}
-              >
-                <img
-                  src={list}
-                  alt=""
-                  className={location.pathname === "/calls" ? "invert brightness-0" : ""}
-                />
-                Meus chamados
-              </Link>             
+            >
+              <img
+                src={list}
+                alt=""
+                className={
+                  location.pathname === "/calls" ? "invert brightness-0" : ""
+                }
+              />
+              Meus chamados
+            </Link>
           </nav>
-          <div className="flex items-center gap-2  text-white cursor-pointer" onClick={() => setOpen(true)} >
+          <div className="flex items-center gap-2  text-white">
             <span className="w-8 h-8 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
               CS
             </span>
-            <div className="flex flex-col" >
+            <div className="flex flex-col">
               <span className="text-sm">Carlos Silva</span>
               <span className="text-xs text-gray-400">user.adm@test.com</span>
             </div>
           </div>
         </div>
       </section>
-      <section className="block  xl:hidden w-screen h-screen  absolute  top-0 ">        
+      <section className="block  xl:hidden w-screen h-screen  absolute  top-0 ">
         <div className="flex justify-between items-center  ">
           {/* GRUPO ESQUERDA */}
           <div className="flex justify-center items-center gap-3.5 absolute top-7 left-6">
-            <img src={menu} alt="menu" className=""/>
+            <img src={menu} alt="menu" className="" />
 
             <div className="flex justify-center gap-4 ">
-              <img src= { LogoIconLight } alt="LogoIconLight" className="h-11 w-11"/>
+              <img
+                src={LogoIconLight}
+                alt="LogoIconLight"
+                className="h-11 w-11"
+              />
               <div>
                 <h1 className="text-xl text-gray-600 ">HelpDesk</h1>
                 <span className="text-xxs text-blue-light ">Admin</span>
@@ -79,18 +81,24 @@ export function MyCallingsTechniciansDetail(){
           </div>
           {/* GRUPO DIREITA */}
           <div>
-            <img src={avatar} alt="avatar" className="absolute top-8 right-10" />
+            <img
+              src={avatar}
+              alt="avatar"
+              className="absolute top-8 right-10"
+            />
           </div>
-        </div>            
-      </section>     
+        </div>
+      </section>
 
-      <form  className="w-full h-screen flex flex-col px-2 xl:px-6  gap-4 bg-white absolute xl:relative rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4 ">  
+      <form className="w-full h-screen flex flex-col px-2 xl:px-6  gap-4 bg-white absolute xl:relative rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4 ">
         <main className="max-w-6xl mx-auto px-4  pt-10">
-
           {/* Linha de voltar + título + botões */}
           <header className="mb-6 md:mb-8 ">
             {/* Voltar */}
-            <Link to="/" className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-500">
+            <Link
+              to="/"
+              className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-500"
+            >
               <span className="text-lg">←</span>
               Voltar
             </Link>
@@ -121,7 +129,6 @@ export function MyCallingsTechniciansDetail(){
           <section className=" ">
             {/* Grid principal: info do chamado + técnico/valores */}
             <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.3fr)]">
-
               {/* Card principal do chamado */}
               <div className="rounded-2xl border border-gray-500 bg-white p-5 md:p-6">
                 {/* Cabeçalho do card */}
@@ -246,7 +253,11 @@ export function MyCallingsTechniciansDetail(){
                   Serviços adicionais
                 </p>
 
-                <button type="button" className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gray-900 text-lg text-white hover:bg-gray-50 cursor-pointer hover:text-gray-200 ease-linear transition" onClick={() => setModalOpen(true)}>
+                <button
+                  type="button"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gray-900 text-lg text-white hover:bg-gray-50 cursor-pointer hover:text-gray-200 ease-linear transition"
+                  onClick={() => setModalOpen(true)}
+                >
                   +
                 </button>
               </div>
@@ -257,7 +268,11 @@ export function MyCallingsTechniciansDetail(){
                   <span className="text-gray-800">Assinatura de backup</span>
                   <div className="flex items-center gap-4">
                     <span className="text-gray-800">R$ 120,00</span>
-                    <img src={bin} alt="icone de lixeira" className="cursor-pointer" />
+                    <img
+                      src={bin}
+                      alt="icone de lixeira"
+                      className="cursor-pointer"
+                    />
                   </div>
                 </div>
 
@@ -266,7 +281,11 @@ export function MyCallingsTechniciansDetail(){
                   <span className="text-gray-800">Formatação do PC</span>
                   <div className="flex items-center gap-4">
                     <span className="text-gray-800">R$ 75,00</span>
-                    <img src={bin} alt="icone de lixeira" className="cursor-pointer"/>
+                    <img
+                      src={bin}
+                      alt="icone de lixeira"
+                      className="cursor-pointer"
+                    />
                   </div>
                 </div>
               </div>
@@ -275,33 +294,10 @@ export function MyCallingsTechniciansDetail(){
         </main>
       </form>
 
-      <ProfileOptionsModal 
-        open={open} 
-        onClose={() => setOpen(false)}
-        onOpenProfile={() => {
-          setOpen(false);        // fecha o modal preto
-          setOpenProfile(true);  // abre o modal de perfil
-        }}
-      />
-
-          {/* MODAL */}
-      <ProfileModal 
-        open={openProfile} 
-        onClose={() => setOpenProfile(false)} 
-      />
-
-      <MyCallingsTechniciansDetailModal
+      <MyCallingsTechniciansDetailModalAdditionalService
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-      /> 
-
+      />
     </div>
-  )
-
+  );
 }
-  
-    
-    
-
-
- 

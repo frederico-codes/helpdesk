@@ -19,7 +19,7 @@ const location = useLocation();
 
   return(
     <div className="w-screen h-screen  xl:grid xl:grid-cols-[280px_1fr] relative  bg-gray-100 ">
-      <section className="  hidden xl:block  bg-gray-100 p-6 ">
+      <section className=" hidden xl:block  bg-gray-100 p-6 ">
         <div className="flex gap-3">
           <img src={Defaultogo} alt="Logo padrão" />
           <div className="flex flex-col">

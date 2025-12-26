@@ -6,7 +6,6 @@ import list from "../assets/icons/clipboard-list.svg"
 import menu from "../assets/icons/Menu.png"
 import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
-import pen from "../assets/icons/pen-line.svg"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom"
 
@@ -15,7 +14,7 @@ const location = useLocation();
 
   return(
     <div className="w-screen h-screen  xl:grid xl:grid-cols-[280px_1fr] relative  bg-gray-100 ">
-        <section className="  hidden xl:block  bg-gray-100 p-6 ">
+        <section className="hidden xl:block  bg-gray-100 p-6 ">
         <div className="flex gap-3">
           <img src={Defaultogo} alt="Logo padrão" />
           <div className="flex flex-col">
@@ -126,7 +125,7 @@ const location = useLocation();
           </div>            
       </section>     
 
-      <form   className="w-full  flex flex-col  xl:px-14 gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl ">
+      <form   className="w-full  flex flex-col   xl:px-14 gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28  xl:mt-4">
         <div className="w-full h-full flex flex-col  bg-gray-50 px-6">
               
           {/* VOLTAR */}
@@ -134,13 +133,13 @@ const location = useLocation();
           {/* TÍTULO + BOTÕES (MOBILE VAI PARA BAIXO) */}
       
 
-          <div className="flex flex-col px-28 "> 
+          <div className="flex flex-col"> 
             <Link to="/technicians" className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-500">
               <span className="text-lg">←</span>
               Voltar
             </Link>
             
-            <div className="flex flex-col  xl:flex-row xl:items-center xl:justify-between gap-4 mb-8">
+            <div className="flex flex-col  xl:flex-row xl:items-center xl:justify-between gap-4 mb-8 xl:px-30">
               <h1 className="text-2xl font-bold text-blue-dark">
                 Perfil de técnico
               </h1>
@@ -156,7 +155,7 @@ const location = useLocation();
           </div>
 
           {/* GRID PRINCIPAL */}
-          <div className="grid grid-cols-1 xl:grid-cols-[290px_1fr] gap-10 px-28">
+          <div className="grid grid-cols-1 xl:grid-cols-[290px_1fr] gap-10 xl:px-28">
 
             {/* CARD DADOS PESSOAIS */}
             <div className="border border-gray-500 rounded-xl p-6">
@@ -245,10 +244,8 @@ const location = useLocation();
           </div>
         </div>
       </form>  
-    </div>
-    
+    </div>    
   )
-
 }
 
 
