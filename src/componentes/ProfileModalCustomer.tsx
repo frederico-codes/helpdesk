@@ -4,11 +4,12 @@ import uiface from "../assets/uifaces-popular-avatar (2).jpg"
 
 interface Props {
   open: boolean
-  onClose: () => void 
+  onClose: () => void  
+  onOpenAlterProfile:() => void   
 }
 
 
-export function ProfileModalCustomer({ open, onClose }: Props) {
+export function ProfileModalCustomer({ open, onClose, onOpenAlterProfile }: Props) {
   if (!open) return null;
 
   return (
@@ -123,7 +124,11 @@ export function ProfileModalCustomer({ open, onClose }: Props) {
                 "
               />
 
-              <button className="px-3 py-1.5 rounded-md bg-gray-500 text-gray-700 hover:bg-gray-50 text-sm cursor-pointer">
+              <button className="px-3 py-1.5 rounded-md bg-gray-500 text-gray-700
+               hover:bg-gray-50 text-sm cursor-pointer" onClick={() => {
+                onClose();        // fecha o modal preto
+                onOpenAlterProfile();  // abre o modal de perfil
+              }}>
                 Alterar
               </button>
             </div>

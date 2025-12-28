@@ -13,11 +13,14 @@ import { Link } from "react-router-dom";
 import clock_open from "../assets/icons/clock-open.svg";
 import pen from "../assets/icons/pen-line.svg";
 import { useState } from "react";
+import { AlterProfileModalTechnicians } from "../componentes/AlterProfileModalTechnicians";
+
 
 export function MyCallingsTechnicians() {
   const location = useLocation();  
   const [open, setOpen] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
+  const [openAlterProfile, setOpenAlterProfile] = useState(false)
 
   return (
     <div className="w-screen h-screen  xl:grid xl:grid-cols-[280px_1fr] relative  bg-gray-100 ">
@@ -175,7 +178,7 @@ export function MyCallingsTechnicians() {
                   <span className="text-gray-400 text-sm">00003</span>
                   <div className="flex gap-1">
                     <Link
-                      to="/detailcalls"
+                      to="/mycallingstecdetail"
                       className="flex justify-center items-center rounded-lg cursor-pointer bg-gray-500 w-8 h-8"
                     >
                       <img src={pen} alt="" />
@@ -228,7 +231,7 @@ export function MyCallingsTechnicians() {
                 <div className="flex justify-between items-end">
                   <span className="text-gray-400 text-sm">00003</span>
                   <Link
-                    to="/detailcalls"
+                    to="/mycallingstecdetail"
                     className="flex justify-center items-center rounded-lg cursor-pointer bg-gray-500 w-8 h-8"
                   >
                     <img src={pen} alt="" />
@@ -272,7 +275,18 @@ export function MyCallingsTechnicians() {
       <ProfileTechnicianModal 
         open={openProfile} 
         onClose={() => setOpenProfile(false)} 
-      />    
+        onOpenAlterProfile={() => {
+        setOpen(false); // fecha o modal preto
+        setOpenProfile(false); // abre o modal de perfil
+        setOpenAlterProfile(true)
+      }}
+      /> 
+
+     <AlterProfileModalTechnicians
+        open={openAlterProfile}
+        onClose={() => setOpenAlterProfile(false)}      
+      />
+  
     </div>
   );
 }

@@ -9,13 +9,15 @@ export function MyCallingsTechniciansDetailModalAdditionalService({ open, onClos
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4" 
+    onClick={onClose} >
       {/* CONTAINER DO MODAL */}
       <div className="
         bg-white rounded-2xl w-full max-w-[440px]
         pt-5 pb-6
         shadow-lg animate-fade
-      ">
+      "  onClick={(e) => e.stopPropagation()} // ← impede que clique dentro feche o modal
+      >
         
         {/* HEADER */}
         <div className="flex items-center justify-between px-6 border-b border-gray-500 pb-4">
@@ -32,7 +34,7 @@ export function MyCallingsTechniciansDetailModalAdditionalService({ open, onClos
         <div className="px-6 mt-4 space-y-5">
 
           <div>
-            <label className="text-xs font-semibold text-gray-300">TÍTULO</label>
+            <label className="text-xs font-semibold text-gray-300 uppercase">Descrição</label>
             <input
               type="text"
               placeholder="Instalação de rede"

@@ -12,6 +12,8 @@ import bin from "../assets/icons/bin.svg";
 import { useState } from "react";
 import { MyCallingsTechniciansDetailModalAdditionalService } from "../componentes/MyCallingsTechniciansDetailModalAdditionalService";
 
+
+
 export function MyCallingsTechniciansDetail() {
   const location = useLocation();
   const [modalOpen, setModalOpen] = useState(false);

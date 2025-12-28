@@ -5,17 +5,12 @@ import LogoIconLight from "../assets/Logo_IconLight.png"
 import avatar from "../assets/Avatar.svg"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom"
-import { useState } from "react"
-import { ProfileOptionsModal } from "../componentes/ProfileOptionsModal"
-import { ProfileModalCustomer } from "../componentes/ProfileModalCustomer"
 import clockOpen from "../assets/icons/clock-open.svg"
-
 
 
 export function MyCallingsCustomersDetail(){
   const location = useLocation();  
-  const [open, setOpen] = useState(false)
-  const [openProfile, setOpenProfile] = useState(false)
+
 
   return(
     <div className="w-screen h-screen  xl:grid xl:grid-cols-[280px_1fr] relative  bg-gray-100 ">
@@ -47,7 +42,7 @@ export function MyCallingsCustomersDetail(){
                 Meus chamados
               </Link>             
           </nav>
-          <div className="flex items-center gap-2  text-white cursor-pointer" onClick={() => setOpen(true)} >
+          <div className="flex items-center gap-2  text-white">
             <span className="w-8 h-8 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
               CS
             </span>
@@ -68,7 +63,7 @@ export function MyCallingsCustomersDetail(){
               <img src= { LogoIconLight } alt="LogoIconLight" className="h-11 w-11"/>
               <div>
                 <h1 className="text-xl text-gray-600 ">HelpDesk</h1>
-                <span className="text-xxs text-blue-light ">Admin</span>
+                <span className="text-xxs text-blue-light uppercase">cliente</span>
               </div>
             </div>
           </div>
@@ -226,22 +221,8 @@ export function MyCallingsCustomersDetail(){
             </div>
           </div>
         </div>
-      </form>
-
-      <ProfileOptionsModal 
-        open={open} 
-        onClose={() => setOpen(false)}
-        onOpenProfile={() => {
-          setOpen(false);        // fecha o modal preto
-          setOpenProfile(true);  // abre o modal de perfil
-        }}
-      />
-
-         {/* MODAL */}
-      <ProfileModalCustomer 
-        open={openProfile} 
-        onClose={() => setOpenProfile(false)} 
-      />     
+      </form>    
+   
     </div>
   )
 }

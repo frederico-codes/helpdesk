@@ -10,19 +10,19 @@ import eye from "../assets/icons/eye.svg"
 import currently_assisting from "../assets/icons/currently_assisting.svg"
 import closed from "../assets/icons/closed.svg"
 import plus from "../assets/icons/plus.svg"
-import { MyCallingsCustomersDetailModal } from "../componentes/MyCallingsCustomersDetailModal"
 import { ProfileOptionsModal } from "../componentes/ProfileOptionsModal"
 import { ProfileModalCustomer } from "../componentes/ProfileModalCustomer"
 import { useState } from "react"
+import {AlterProfileModalCustomer} from "../componentes/AlterProfileModalCustomer"
 
 
 
 
 export function MyCallingsCustomers(){
 const location = useLocation();
-const [modalOpen, setModalOpen] = useState(false)
-const [open, setOpen] = useState(false)
-const [openProfile, setOpenProfile] = useState(false)
+ const [open, setOpen] = useState(false);
+  const [openProfile, setOpenProfile] = useState(false);
+  const [openAlterProfile, setOpenAlterProfile] = useState(false)
 
 
   return(
@@ -32,7 +32,7 @@ const [openProfile, setOpenProfile] = useState(false)
           <img src={Defaultogo} alt="Logo padrão"/>
           <div className="flex flex-col">
             <h1 className="text-gray-600 text-xl">HelpDesk</h1>
-            <span className="text-xxs text-blue-light">cliente</span>
+            <span className="text-xxs text-blue-light uppercase">cliente</span>
           </div>
         </div>
         <div className="flex flex-col justify-between h-screen pb-28">
@@ -103,7 +103,7 @@ const [openProfile, setOpenProfile] = useState(false)
       </section>     
 
       <form   className="w-full h-screen flex flex-col px-2 xl:px-6  gap-4 bg-white absolute xl:relative py-0  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4">
-        <div className="min-h-screen bg-gray-50 px-0 pt-12 xl:px-0">
+        <div className="w-full max-w-6xl px-0 pt-12 xl:px-0 ">       
           <h1 className="mb-6 text-xl font-semibold text-blue-700">
             Meus chamados
           </h1>
@@ -339,18 +339,21 @@ const [openProfile, setOpenProfile] = useState(false)
         }}
       />
 
-          {/* MODAL */}
+      {/* MODAL */}
       <ProfileModalCustomer 
         open={openProfile} 
         onClose={() => setOpenProfile(false)} 
-      />
-      
-      
-
-      <MyCallingsCustomersDetailModal
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onOpenAlterProfile={() => {
+        setOpen(false); // fecha o modal preto
+        setOpenProfile(false); // abre o modal de perfil
+        setOpenAlterProfile(true)
+      }}
       /> 
+      
+      <AlterProfileModalCustomer
+        open={openAlterProfile}
+        onClose={() => setOpenAlterProfile(false)}  
+      />      
     </div>   
   )
 

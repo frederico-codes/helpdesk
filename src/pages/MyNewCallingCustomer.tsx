@@ -6,15 +6,12 @@ import avatar from "../assets/Avatar.svg"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom"
 import plus from "../assets/icons/plus.svg"
-import { useState } from "react"
-import { ProfileOptionsModal } from "../componentes/ProfileOptionsModal"
-import { ProfileModalCustomer } from "../componentes/ProfileModalCustomer"
+
 
 
 export function MyNewCallingCustomer(){
 const location = useLocation();
-const [open, setOpen] = useState(false)
-const [openProfile, setOpenProfile] = useState(false)
+
 
   return(
     <div className="w-screen h-screen  xl:grid xl:grid-cols-[280px_1fr] relative  bg-gray-100 ">
@@ -23,7 +20,7 @@ const [openProfile, setOpenProfile] = useState(false)
           <img src={Defaultogo} alt="Logo padrão"/>
           <div className="flex flex-col">
             <h1 className="text-gray-600 text-xl">HelpDesk</h1>
-            <span className="text-xxs text-blue-light">Admin</span>
+            <span className="text-xxs text-blue-light uppercase">cliente</span>
           </div>
         </div>
         <div className="flex flex-col justify-between h-screen pb-28">
@@ -61,11 +58,11 @@ const [openProfile, setOpenProfile] = useState(false)
             </Link>             
           </nav>
 
-          <div className="flex items-center gap-2  text-white cursor-pointer">
+          <div className="flex items-center gap-2  text-white">
             <span className="w-8 h-8 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center">
               CS
             </span>
-            <div className="flex flex-col"  onClick={() => setOpen(true)}>
+            <div className="flex flex-col">
               <span className="text-sm">Carlos Silva</span>
               <span className="text-xs text-gray-400">user.adm@test.com</span>
             </div>
@@ -82,7 +79,7 @@ const [openProfile, setOpenProfile] = useState(false)
               <img src= { LogoIconLight } alt="LogoIconLight" className="h-11 w-11"/>
               <div>
                 <h1 className="text-xl text-gray-600 ">HelpDesk</h1>
-                <span className="text-xxs text-blue-light ">Admin</span>
+                <span className="text-xxs text-blue-light uppercase">cliente</span>
               </div>
             </div>
           </div>
@@ -93,8 +90,8 @@ const [openProfile, setOpenProfile] = useState(false)
         </div>            
       </section>       
 
-      <form   className="w-full h-screen flex flex-col px-6 xl:px-6  gap-4 bg-white absolute xl:relative py-24  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4">
-        <div className="min-h-screen bg-gray-50 px-4 py-6 lg:px-44">
+      <form   className="w-full h-screen flex flex-col px-6 xl:px-6  gap-4 bg-white absolute xl:relative pt-2  rounded-3xl xl:rounded-none xl:rounded-tl-2xl mt-28 xl:mt-4">
+        <div className="min-h-screen px-4 py-6 lg:px-44">
           {/* TÍTULO */}
           <h1 className="text-xl font-semibold text-blue-700 mb-6">
             Novo chamado
@@ -230,20 +227,7 @@ const [openProfile, setOpenProfile] = useState(false)
           </div>
         </div>
       </form>
-      <ProfileOptionsModal 
-            open={open} 
-            onClose={() => setOpen(false)}
-            onOpenProfile={() => {
-              setOpen(false);        // fecha o modal preto
-              setOpenProfile(true);  // abre o modal de perfil
-            }}
-          />
-
-      {/* MODAL */}
-      <ProfileModalCustomer 
-        open={openProfile} 
-        onClose={() => setOpenProfile(false)} 
-      />   
+    
     </div>
   )
 
